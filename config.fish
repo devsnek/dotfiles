@@ -1,8 +1,8 @@
 set -gx PATH /Users/gus/bin $PATH
-
-set -g theme_color_scheme solarized-dark
-
+set -gx theme_color_scheme solarized-dark
 set -gx EDITOR vim
+
+set fish_greeting ""
 
 alias https "http --default-scheme=https"
 alias lua "echo lolno"
