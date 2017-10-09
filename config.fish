@@ -29,13 +29,19 @@ alias rrc "source ~/.config/fish/config.fish"
 
 alias uuid 'python -c "import uuid; print str(uuid.uuid4())"'
 
-alias timer='echo "Timer started. Stop with Ctrl-D."; and date; and time cat; and date'
+alias timer 'echo "Timer started. Stop with Ctrl-D."; and date; and time cat; and date'
 
-alias sniff="sudo ngrep -d 'en1' -t '^(GET|POST) ' 'tcp and port 80'"
-alias httpdump="sudo tcpdump -i en1 -n -s 0 -w - | grep -a -o -E \"Host\: .*|GET \/.*\""
+alias sniff "sudo ngrep -d 'en1' -t '^(GET|POST) ' 'tcp and port 80'"
+alias httpdump 'sudo tcpdump -i en1 -n -s 0 -w - | grep -a -o -E "Host\: .*|GET \/.*"'
 
 for method in GET HEAD POST PUT DELETE TRACE OPTIONS
   alias "$method"="https '$method'"
+end
+
+alias afk 'pmset displaysleepnow'
+
+function serveo
+  ssh -R 80:localhost:$argv[1] serveo.net
 end
 
 function fu --description 'Run previous console command with sudo'

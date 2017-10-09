@@ -24,6 +24,7 @@ Plugin 'dag/vim-fish'
 Plugin 'mileszs/ack.vim'
 Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'posva/vim-vue'
+Plugin 'editorconfig/editorconfig-vim'
 
 call vundle#end()
 filetype plugin indent on
