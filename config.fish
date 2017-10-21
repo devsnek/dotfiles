@@ -17,10 +17,10 @@ if command --search exa >/dev/null do
   alias ls="exa"
 end
 
-alias ..="cd .."
-alias ...="cd ../.."
-alias ....="cd ../../.."
-alias .....="cd ../../../.."
+alias .. "cd .."
+alias ... "cd ../.."
+alias .... "cd ../../.."
+alias ..... "cd ../../../.."
 
 alias erc "$EDITOR ~/.config/fish/config.fish"
 alias rrc "source ~/.config/fish/config.fish"
@@ -54,16 +54,15 @@ function fuu -d "Correct your previous console command"
     history --merge ^ /dev/null
   end
 end
-alias fuuu=fuu
-alias fuuuu=fuu
-alias fuk=fuu
-alias fuuk=fuu
-alias fuuuk=fuu
-alias fuc=fuu
-alias fuuc=fuu
-alias fuuuc=fuu
-alias fuck=fuu
-alias fuuck=fuu
-alias fuuuck=fuu
+
+for e in fuuu fuuuu fuk fuuk fuuuk fuc fuuc fuuuc fuck fuuck fuuuck
+  alias $e fuu
+end
+
+function fcom
+  git add .
+  git add -A .
+  git commit -S -m $argv[1]
+end
 
 # test $TERM != "screen" -a $TERM_PROGRAM != "platformio-ide-terminal"; and exec tmux
