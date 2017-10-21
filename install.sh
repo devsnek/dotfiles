@@ -7,16 +7,15 @@ rdir() {
 home=$(rdir ~/)
 here=$(rdir .)
 
-install() {
-  local dname=$1
-  if [ "$2" != false ]; then local dname=".$dname"; fi
+install() { 
   local src="$here/$1"
-  local dst="${3:-$home}/$dname"
+  local dst="${3:-$home}/$1"
   echo "linking $src to $dst"
+  rm $dst
   ln -s $src $dst
 }
 
 install config.fish false $(rdir ~/.config/fish)
-install tmux.conf
-install eslintrc.json
-install vimrc
+install .tmux.conf
+install .eslintrc.json
+install .vimrc
