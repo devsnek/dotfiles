@@ -1,9 +1,7 @@
-if test -d $HOME/bin
-  set -gx PATH $HOME/bin $PATH
-end
-
-if test -d $HOME/.cargo/bin
-  set -gx PATH $HOME/.cargo/bin $PATH;
+for p in $HOME/bin $HOME/.cargo/bin $HOME/go/bin
+  if test -d $p
+    set -gx PATH $p $PATH;
+  end
 end
 
 set -gx theme_color_scheme solarized-dark
