@@ -32,6 +32,8 @@ alias timer 'echo "Timer started. Stop with Ctrl-D."; and date; and time cat; an
 alias sniff "sudo ngrep -d 'en1' -t '^(GET|POST) ' 'tcp and port 80'"
 alias httpdump 'sudo tcpdump -i en1 -n -s 0 -w - | grep -a -o -E "Host\: .*|GET \/.*"'
 
+alias fpackagelock "echo 'package-lock=false' > .npmrc"
+
 for method in GET HEAD POST PUT DELETE TRACE OPTIONS
   alias "$method"="https '$method'"
 end
