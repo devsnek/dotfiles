@@ -15,12 +15,16 @@ if dein#load_state('~/.config/nvim/plugins')
   endfor
 
   call dein#add('neovim/node-host')
+  call dein#add('mklabs/split-term.vim')
 
   call dein#end()
   call dein#save_state()
 endif
 
 call BaseApplySettings()
+
+set splitbelow splitright
+au BufEnter * if &buftype == 'terminal' | :startinsert | endif
 
 if dein#check_install()
   call dein#install()
