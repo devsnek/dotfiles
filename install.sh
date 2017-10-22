@@ -9,7 +9,10 @@ install() {
 }
 
 install config.fish "$HOME/.config/fish"
+
 install init.vim "$HOME/.config/nvim"
+install .vimrc
+install base.vim
+
 install .tmux.conf
 install .eslintrc.json
-install .vimrc
