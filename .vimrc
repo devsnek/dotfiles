@@ -13,6 +13,5 @@ for plugin in BaseGetPlugins()
 endfor
 
 call vundle#end()
-filetype plugin indent on
 
 call BaseApplySettings()

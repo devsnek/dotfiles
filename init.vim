@@ -21,3 +21,7 @@ if dein#load_state('~/.config/nvim/plugins')
 endif
 
 call BaseApplySettings()
+
+if dein#check_install()
+  call dein#install()
+endif

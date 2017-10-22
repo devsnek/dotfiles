@@ -2,7 +2,6 @@ function BaseGetPlugins()
   return [
 \   'altercation/vim-colors-solarized',
 \   'vim-airline/vim-airline',
-\   'vim-airline/vim-airline',
 \   'vim-airline/vim-airline-themes',
 \   'w0rp/ale',
 \   'pangloss/vim-javascript',
@@ -25,6 +24,8 @@ function BaseApplySettings()
   filetype plugin indent on
   syntax enable
 
+  set guicursor=
+
   set background=dark
   colorscheme solarized
 
@@ -44,10 +45,6 @@ function BaseApplySettings()
   \}
 
   command Wq wq
-
-  if dein#check_install()
-    call dein#install()
-  endif
 
   autocmd vimenter * NERDTree
   autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
