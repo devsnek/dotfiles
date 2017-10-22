@@ -13,8 +13,12 @@ alias https "http --default-scheme=https"
 alias lua "echo lolno"
 alias vi "vim"
 
+if command --search nvim >/dev/null do
+  alias vim "nvim"
+end
+
 if command --search exa >/dev/null do
-  alias ls="exa"
+  alias ls "exa"
 end
 
 alias .. "cd .."
