@@ -8,6 +8,7 @@ function BaseGetPlugins()
 \   'moll/vim-node',
 \   'elzr/vim-json',
 \   'tpope/vim-fugitive',
+\   'plasticboy/vim-markdown',
 \   'godlygeek/tabular',
 \   'wellle/targets.vim',
 \   'tpope/vim-commentary',
@@ -39,6 +40,9 @@ function BaseApplySettings()
   let g:airline#extensions#ale#enabled = 1
   let g:airline_solarized_normal_green = 1
   let g:javascript_plugin_jsdoc = 1
+
+  let g:vim_markdown_folding_disabled = 1
+  let g:markdown_github_languages = ['python', 'py=python', 'json', 'html']
 
   let g:ale_fixers = {
   \   'javascript': ['eslint'],
