@@ -51,6 +51,7 @@ end
 function fu --description 'Run previous console command with sudo'
   commandline "sudo $history[1]"
 end
+
 function fuu -d "Correct your previous console command"
   set -l fucked_up_command $history[1]
   env TF_ALIAS=fuu PYTHONIOENCODING=utf-8 thefuck $fucked_up_command | read -l unfucked_command
