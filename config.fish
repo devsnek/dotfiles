@@ -73,3 +73,5 @@ function fcom
 end
 
 # test $TERM != "screen" -a $TERM_PROGRAM != "platformio-ide-terminal"; and exec tmux
+
+test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shell_integration.fish

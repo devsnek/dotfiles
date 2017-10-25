@@ -42,3 +42,6 @@ warn "Installing misc deps"
 gitstall https://github.com/VundleVim/Vundle.vim.git "$HOME/.vim/bundle/Vundle.vim"
 gitstall https://github.com/Shougo/dein.vim "$HOME/.config/nvim/plugins/repos/github.com/Shougo/dein.vim"
 
+warn "Running misc commands"
+
+$(which vim) +PluginInstall +qall
