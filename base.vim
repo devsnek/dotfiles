@@ -17,7 +17,8 @@ function BaseGetPlugins()
 \   'mileszs/ack.vim',
 \   'mustache/vim-mustache-handlebars',
 \   'posva/vim-vue',
-\   'editorconfig/editorconfig-vim'
+\   'editorconfig/editorconfig-vim',
+\   'wakatime/vim-wakatime'
 \ ]
 endfunction
 
@@ -42,7 +43,7 @@ function BaseApplySettings()
   let g:javascript_plugin_jsdoc = 1
 
   let g:vim_markdown_folding_disabled = 1
-  let g:markdown_github_languages = ['python', 'py=python', 'json', 'html']
+  let g:markdown_github_languages = ['python', 'py=python', 'json', 'html', 'javascript=js']
 
   let g:ale_fixers = {
   \   'javascript': ['eslint'],

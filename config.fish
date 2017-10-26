@@ -1,4 +1,9 @@
-for p in $HOME/bin $HOME/.cargo/bin $HOME/go/bin
+if test -f $HOME/.emscripten
+  set -l root (cat ~/.emscripten | python -c 'import sys; import re; src = sys.stdin.read().split("\\n"); entry = [x for x in src if "EMSCRIPTEN_ROOT" in x][0]; entry = re.sub(r"EMSCRIPTEN_ROOT=\'|\'$", "", entry); print entry')
+  set -gx PATH $root $PATH;
+end
+
+for p in $HOME/bin $HOME/.cargo/bin $HOME/go/bin $HOME/bin/emsdk-portable
   if test -d $p
     set -gx PATH $p $PATH;
   end
