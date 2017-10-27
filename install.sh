@@ -45,3 +45,5 @@ gitstall https://github.com/Shougo/dein.vim "$HOME/.config/nvim/plugins/repos/gi
 warn "Running misc commands"
 
 $(which vim) +PluginInstall +qall
+
+tic xterm-256color-italic.terminfo
