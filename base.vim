@@ -18,7 +18,8 @@ function BaseGetPlugins()
 \   'mustache/vim-mustache-handlebars',
 \   'posva/vim-vue',
 \   'editorconfig/editorconfig-vim',
-\   'wakatime/vim-wakatime'
+\   'wakatime/vim-wakatime',
+\   'tomlion/vim-solidity'
 \ ]
 endfunction
 
