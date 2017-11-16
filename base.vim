@@ -19,7 +19,8 @@ function BaseGetPlugins()
 \   'posva/vim-vue',
 \   'editorconfig/editorconfig-vim',
 \   'wakatime/vim-wakatime',
-\   'tomlion/vim-solidity'
+\   'tomlion/vim-solidity',
+\   'peterhoeg/vim-qml'
 \ ]
 endfunction
 

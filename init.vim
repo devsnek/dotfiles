@@ -3,6 +3,7 @@ if &compatible
 endif
 
 set runtimepath+=~/.config/nvim/plugins/repos/github.com/Shougo/dein.vim
+set runtimepath+=~/.config/nvim/rplugin
 
 source ~/base.vim
 

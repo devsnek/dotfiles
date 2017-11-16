@@ -1,3 +1,5 @@
+source ~/.iterm2_shell_integration.fish
+
 if test -f $HOME/.emscripten
   set -l root (cat ~/.emscripten | python -c 'import sys; import re; src = sys.stdin.read().split("\\n"); entry = [x for x in src if "EMSCRIPTEN_ROOT" in x][0]; entry = re.sub(r"EMSCRIPTEN_ROOT=\'|\'$", "", entry); print entry')
   set -gx PATH $root $PATH;
@@ -11,6 +13,7 @@ end
 
 set -gx theme_color_scheme solarized-dark
 set -gx EDITOR vim
+set -gx TIME_STYLE long-iso
 
 set fish_greeting ""
 
@@ -20,6 +23,15 @@ alias vi vim
 
 if command --search nvim >/dev/null do
   alias vim nvim
+end
+
+function ls
+  set argv "--time-style=long-iso" $argv
+  if command --search exa >/dev/null do
+    exa $argv
+  else
+    ls $argv
+  end
 end
 
 if command --search exa >/dev/null do
@@ -69,7 +81,7 @@ for e in fuuu fuuuu fuk fuuk fuuuk fuc fuuc fuuuc fuck fuuck fuuuck
   alias $e fuu
 end
 
-function fcom
+function git-fast
   git add .
   git add -A .
   git commit -S -m $argv[1]

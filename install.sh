@@ -46,4 +46,6 @@ warn "Running misc commands"
 
 $(which vim) +PluginInstall +qall
 
+curl -L https://iterm2.com/shell_integration/fish -o ~/.iterm2_shell_integration.fish
+
 tic xterm-256color-italic.terminfo
