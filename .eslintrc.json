@@ -9,7 +9,7 @@
     "browser": true
   },
   "overrides": [
-    { "files": ["*.mjs"], "parserOptions": { "sourceType": "module" } },
+    { "files": ["*.mjs", "*.ts"], "parserOptions": { "sourceType": "module" } },
     {
       "files": ["*.jsx"],
       "parserOptions": {
