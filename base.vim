@@ -20,7 +20,10 @@ function BaseGetPlugins()
 \   'editorconfig/editorconfig-vim',
 \   'wakatime/vim-wakatime',
 \   'tomlion/vim-solidity',
-\   'peterhoeg/vim-qml'
+\   'peterhoeg/vim-qml',
+\   'kelan/gyp.vim',
+\   'leafgarland/typescript-vim',
+\   'lluchs/vim-wren',
 \ ]
 endfunction
 
