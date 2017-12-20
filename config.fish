@@ -5,7 +5,7 @@ if test -f $HOME/.emscripten
   set -gx PATH $root $PATH;
 end
 
-for p in $HOME/bin $HOME/.cargo/bin $HOME/go/bin $HOME/bin/emsdk-portable $HOME/.npm-global/bin
+for p in $HOME/bin $HOME/.cargo/bin $HOME/go/bin $HOME/bin/emsdk-portable $HOME/.npm-global/bin $HOME/.jsvu
   if test -d $p
     set -gx PATH $p $PATH;
   end
@@ -92,3 +92,4 @@ end
 # test $TERM != "screen" -a $TERM_PROGRAM != "platformio-ide-terminal"; and exec tmux
 
 test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shell_integration.fish
+set -g fish_user_paths "/usr/local/sbin" $fish_user_paths

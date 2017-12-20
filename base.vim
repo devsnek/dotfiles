@@ -24,6 +24,7 @@ function BaseGetPlugins()
 \   'kelan/gyp.vim',
 \   'leafgarland/typescript-vim',
 \   'lluchs/vim-wren',
+\   'terryma/vim-multiple-cursors'
 \ ]
 endfunction
 

@@ -1,7 +1,11 @@
 {
   "extends": "eslint:recommended",
   "parserOptions": {
-    "ecmaVersion": 2017
+    "ecmaVersion": 2017,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "experimentalObjectRestSpread": true
+    }
   },
   "env": {
     "es6": true,
@@ -9,11 +13,9 @@
     "browser": true
   },
   "overrides": [
-    { "files": ["*.mjs", "*.ts"], "parserOptions": { "sourceType": "module" } },
     {
       "files": ["*.jsx"],
       "parserOptions": {
-        "sourceType": "module",
         "ecmaFeatures": { "jsx": true }
       }
     }
