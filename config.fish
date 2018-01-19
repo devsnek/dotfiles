@@ -5,7 +5,7 @@ if test -f $HOME/.emscripten
   set -gx PATH $root $PATH;
 end
 
-for p in $HOME/bin $HOME/.cargo/bin $HOME/go/bin $HOME/bin/emsdk-portable $HOME/.npm-global/bin $HOME/.jsvu
+for p in $HOME/bin $HOME/.cargo/bin $HOME/go/bin $HOME/bin/emsdk-portable $HOME/.npm-global/bin $HOME/.jsvu $HOME/Desktop/tools/depot_tools
   if test -d $p
     set -gx PATH $p $PATH;
   end
@@ -69,27 +69,21 @@ function fu --description 'Run previous console command with sudo'
   commandline "sudo $history[1]"
 end
 
-function fuu -d "Correct your previous console command"
+function fuck -d "Correct your previous console command"
   set -l fucked_up_command $history[1]
-  env TF_ALIAS=fuu PYTHONIOENCODING=utf-8 thefuck $fucked_up_command | read -l unfucked_command
+  env TF_ALIAS=fuck PYTHONIOENCODING=utf-8 thefuck $fucked_up_command | read -l unfucked_command
   if [ "$unfucked_command" != "" ]
     eval $unfucked_command
-    history --delete $fucked_up_command
-    history --merge ^ /dev/null
+    builtin history delete --exact --case-sensitive -- $fucked_up_command
+    builtin history merge ^ /dev/null
   end
 end
 
-for e in fuuu fuuuu fuk fuuk fuuuk fuc fuuc fuuuc fuck fuuck fuuuck
-  alias $e fuu
+for e in fuuu fuuuu fuk fuuk fuuuk fuc fuuc fuuuc fuuck fuuuck FUCK FUUUUCK FUUCK FUUUCK
+  alias $e fuck
 end
 
-function git-fast
-  git add .
-  git add -A .
-  git commit -S -m $argv[1]
-end
-
-# test $TERM != "screen" -a $TERM_PROGRAM != "platformio-ide-terminal"; and exec tmux
+git config --global alias.fast '!git add . && git add -A . && git commit -S -m $argv'
 
 test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shell_integration.fish
 set -g fish_user_paths "/usr/local/sbin" $fish_user_paths

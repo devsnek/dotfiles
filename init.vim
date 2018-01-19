@@ -17,7 +17,6 @@ if dein#load_state('~/.config/nvim/plugins')
 
   call dein#add('neovim/node-host')
   call dein#add('mklabs/split-term.vim')
-  call dein#add('aurieh/discord.nvim')
 
   call dein#end()
   call dein#save_state()

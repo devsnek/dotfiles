@@ -1,6 +1,7 @@
 function BaseGetPlugins()
   return [
 \   'altercation/vim-colors-solarized',
+\   'sickill/vim-monokai',
 \   'vim-airline/vim-airline',
 \   'vim-airline/vim-airline-themes',
 \   'w0rp/ale',
@@ -24,7 +25,8 @@ function BaseGetPlugins()
 \   'kelan/gyp.vim',
 \   'leafgarland/typescript-vim',
 \   'lluchs/vim-wren',
-\   'terryma/vim-multiple-cursors'
+\   'terryma/vim-multiple-cursors',
+\   'wincent/terminus'
 \ ]
 endfunction
 
@@ -42,6 +44,7 @@ function BaseApplySettings()
   set mouse=a
   set smartindent
   set tabstop=4 softtabstop=0 expandtab shiftwidth=2 smarttab
+  set nowrap
 
   let g:airline_powerline_fonts = 1
   let g:airline#extensions#ale#enabled = 1
