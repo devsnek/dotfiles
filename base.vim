@@ -26,7 +26,8 @@ function BaseGetPlugins()
 \   'leafgarland/typescript-vim',
 \   'lluchs/vim-wren',
 \   'terryma/vim-multiple-cursors',
-\   'wincent/terminus'
+\   'wincent/terminus',
+\   'cespare/vim-toml'
 \ ]
 endfunction
 
@@ -52,6 +53,7 @@ function BaseApplySettings()
   let g:javascript_plugin_jsdoc = 1
 
   let g:vim_markdown_folding_disabled = 1
+  set conceallevel=2
   let g:markdown_github_languages = ['python', 'py=python', 'json', 'html', 'javascript=js']
 
   let g:ale_fixers = {

@@ -17,11 +17,11 @@ set -gx TIME_STYLE long-iso
 set -gx NPM_CONFIG_PREFIX ~/.npm-global
 set -gx PYTHONDONTWRITEBYTECODE plz
 
-set fish_greeting ""
-
 alias https "http --default-scheme=https"
 alias lua "echo lolno"
 alias vi vim
+
+set fish_greeting ""
 
 if command --search nvim >/dev/null do
   alias vim nvim

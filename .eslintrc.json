@@ -2,7 +2,6 @@
   "extends": "eslint:recommended",
   "parserOptions": {
     "ecmaVersion": 2017,
-    "sourceType": "module",
     "ecmaFeatures": {
       "experimentalObjectRestSpread": true
     }
@@ -17,6 +16,12 @@
       "files": ["*.jsx"],
       "parserOptions": {
         "ecmaFeatures": { "jsx": true }
+      }
+    },
+    {
+      "files": ["*.mjs", "*.web.js"],
+      "parserOptions": {
+        "sourceType": "module"
       }
     }
   ],
@@ -137,7 +142,11 @@
     "semi-spacing": "error",
     "semi": "error",
     "space-before-blocks": "error",
-    "space-before-function-paren": ["error", "never"],
+    "space-before-function-paren": ["error", {
+      "anonymous": "never",
+      "named": "never",
+      "asyncArrow": "always"
+    }],
     "space-in-parens": "error",
     "space-infix-ops": "error",
     "space-unary-ops": "error",
@@ -158,6 +167,7 @@
     "prefer-template": "error",
     "rest-spread-spacing": "error",
     "template-curly-spacing": "error",
-    "yield-star-spacing": "error"
+    "yield-star-spacing": "error",
+    "strict": ["error", "global"]
   }
 }
