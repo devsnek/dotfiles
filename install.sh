@@ -35,7 +35,7 @@ install .vimrc
 install base.vim
 
 install .tmux.conf
-install .eslintrc.json
+install .eslintrc.js
 
 warn "Installing misc deps"
 
