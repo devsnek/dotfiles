@@ -22,6 +22,12 @@ module.exports = {
     {
       files: ['*.mjs'],
       parserOptions: { sourceType: 'module' },
+      env: {
+        node: true,
+      },
+      rules: {
+        'no-restricted-globals': ['error', 'require'],
+      },
     },
     {
       files: ['*.web.js'],
@@ -168,5 +174,8 @@ module.exports = {
     'template-curly-spacing': 'error',
     'yield-star-spacing': 'error',
     strict: ['error', 'global'],
+  },
+  globals: {
+    WebAssembly: false,
   },
 };

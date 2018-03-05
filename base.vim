@@ -35,6 +35,10 @@ function BaseApplySettings()
   filetype plugin indent on
   syntax enable
 
+  if has('clipboard')
+    set clipboard=unnamed
+  end
+
   set guicursor=
 
   set background=dark

@@ -28,6 +28,8 @@ gitstall() {
 
 warn "Symlinking files"
 
+install .gitconfig
+
 install config.fish "$HOME/.config/fish"
 
 install init.vim "$HOME/.config/nvim"
