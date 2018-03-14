@@ -1,7 +1,5 @@
-source ~/.iterm2_shell_integration.fish
-
 if test -f $HOME/.emscripten
-  set -l root (cat ~/.emscripten | python -c 'import sys; import re; src = sys.stdin.read().split("\\n"); entry = [x for x in src if "EMSCRIPTEN_ROOT" in x][0]; entry = re.sub(r"EMSCRIPTEN_ROOT=\'|\'$", "", entry); print entry')
+  set -l root (cat ~/.emscripten | python -c 'import sys; import re; src = sys.stdin.read().split("\\n"); entry = [x for x in src if "EMSCRIPTEN_ROOT" in x][0]; entry = re.sub(r"EMSCRIPTEN_ROOT=\'|\'$", "", entry); print(entry)')
   set -gx PATH $root $PATH;
 end
 
@@ -9,6 +7,10 @@ for p in $HOME/bin $HOME/.cargo/bin $HOME/go/bin $HOME/bin/emsdk-portable $HOME/
   if test -d $p
     set -gx PATH $p $PATH;
   end
+end
+
+if test -d $HOME/Documents/filmic-blender-master
+  set -gx OCIO $HOME/Documents/filmic-blender-master/config.ocio
 end
 
 set -gx theme_color_scheme solarized-dark

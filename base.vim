@@ -58,7 +58,7 @@ function BaseApplySettings()
 
   let g:vim_markdown_folding_disabled = 1
   set conceallevel=2
-  let g:markdown_github_languages = ['python', 'py=python', 'json', 'html', 'javascript=js']
+  let g:vim_markdown_fenced_languages = ['py=python', 'js=javascript']
 
   let g:ale_fixers = {
   \   'javascript': ['eslint'],

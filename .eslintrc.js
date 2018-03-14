@@ -2,8 +2,10 @@
 
 module.exports = {
   extends: 'eslint:recommended',
+  parser: 'babel-eslint',
   parserOptions: {
-    ecmaVersion: 2017,
+    ecmaVersion: 2018,
+    sourceType: 'script',
     ecmaFeatures: {
       experimentalObjectRestSpread: true,
     },
@@ -177,5 +179,7 @@ module.exports = {
   },
   globals: {
     WebAssembly: false,
+    BigInt: false,
+    URL: false,
   },
 };
