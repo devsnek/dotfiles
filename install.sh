@@ -9,13 +9,10 @@ warn() {
 }
 
 install() { 
-  local src="$(pwd)/$1"
+  local src="$(pwd)/dotfiles/$1"
   local dst="${2:-$HOME}/$1"
   info "linking $src to $dst"
-  if [ -f "$dst" ]; then
-    rm $dst
-  fi
-  ln -s $src $dst
+  ln -sf $src $dst
 }
 
 gitstall() {
@@ -50,4 +47,4 @@ $(which vim) +PluginInstall +qall
 
 curl -L https://iterm2.com/shell_integration/fish -o ~/.iterm2_shell_integration.fish
 
-tic xterm-256color-italic.terminfo
+tic "$(pwd)/dotfiles/xterm-256color-italic.terminfo"
