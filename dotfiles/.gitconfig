@@ -1,15 +1,43 @@
+[core]
+  attributesFile = ~/.gitattributes
 [user]
-	email = me@gus.host
-	name = Gus Caplan
-	signingkey = 24E8BBD2DA10B312CF164CA258CCE2A24E2D41DC
+  email = me@gus.host
+  name = Gus Caplan
+  signingkey = 24E8BBD2DA10B312CF164CA258CCE2A24E2D41DC
 [alias]
-	yolo = !git commit -S -m \"$(curl -s whatthecommit.com/index.txt)\"
-	fast = !git add . && git add -A . && git commit -S -m $argv
-	grog = log --graph --abbrev-commit --decorate --all --format=format:\"%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(dim white) - %an%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n %C(white)%s%C(reset)\"
+  fast = !git add . && git add -A . && git commit -S -m $argv
+  yolo = !git commit -S -m \"$(curl -s whatthecommit.com/index.txt)\"
+  grog = log --graph --abbrev-commit --decorate --all --format=format:\"%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(dim white) - %an%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n %C(white)%s%C(reset)\"
 [apply]
-	whitespace = fix
-	whitespace = fix
+  whitespace = fix
+  whitespace = fix
 [http]
-	cookiefile = /Users/gus/.gitcookies
+  cookiefile = /Users/gus/.gitcookies
 [commit]
-	gpgsign = true
+  gpgsign = true
+[diff "zip"]
+  textconv = unzip -p
+  binary = true
+[diff "gz"]
+  textconv = gzcat
+  binary = true
+[diff "bz2"]
+  textconv = bzcat
+  binary = true
+[diff "xz"]
+  textconv = xzcat
+  binary = true
+[diff "tar"]
+  textconv = tar -O -xf
+  binary = true
+[diff "tar-bz2"]
+  textconv = tar -O -xjf
+  binary = true
+[diff "tar-gz"]
+  textconv = tar -O -xzf
+  binary = true
+[diff "tar-xz"]
+  textconv = tar -O -xJf
+  binary = true
+[diff "bin"]
+  textconv = hexdump -v -C

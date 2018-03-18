@@ -26,6 +26,7 @@ gitstall() {
 warn "Symlinking files"
 
 install .gitconfig
+install .gitattributes
 
 install config.fish "$HOME/.config/fish"
 

@@ -1,0 +1,11 @@
+*.tar diff=tar
+*.tar.bz2 diff=tar-bz2
+*.tar.gz diff=tar-gz
+*.tar.xz diff=tar-xz
+*.bz2 diff=bz2
+*.gz diff=gz
+*.zip diff=zip
+*.xz diff=xz
+*.exe diff=bin
+*.png diff=bin
+*.jpg diff=bin
