@@ -1,3 +1,16 @@
+function! CleverTab()
+  if pumvisible()
+    return "\<C-N>"
+  endif
+  if strpart( getline('.'), 0, col('.')-1 ) =~ '^\s*$'
+    return "\<Tab>"
+  elseif exists('&omnifunc') && &omnifunc != ''
+    return "\<C-X>\<C-O>"
+  else
+    return "\<C-N>"
+  endif
+endfunction
+
 function BaseGetPlugins()
   return [
 \   'altercation/vim-colors-solarized',
@@ -65,6 +78,13 @@ function BaseApplySettings()
   \}
 
   command Wq wq
+
+  autocmd BufRead,BufNewFile *.md setlocal spell
+  autocmd FileType gitcommit setlocal spell
+
+  inoremap <Tab> <C-R>=CleverTab()<CR>
+
+  set complete+=kspell
 
   autocmd vimenter * NERDTree
   autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
