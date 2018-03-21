@@ -5,7 +5,7 @@
   name = Gus Caplan
   signingkey = 24E8BBD2DA10B312CF164CA258CCE2A24E2D41DC
 [alias]
-  fast = !git add . && git add -A . && git commit -S -m $argv
+	fast = !git add . && git add -A . && git commit -S -m $argv
   yolo = !git commit -S -m \"$(curl -s whatthecommit.com/index.txt)\"
   grog = log --graph --abbrev-commit --decorate --all --format=format:\"%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(dim white) - %an%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n %C(white)%s%C(reset)\"
 [apply]
