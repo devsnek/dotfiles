@@ -117,7 +117,6 @@ filetype indent on
 set list listchars=tab:\ \ ,trail:·
 
 set nowrap       "Don't wrap lines
-set linebreak    "Wrap lines at convenient points
 
 " ================ Folds ============================
 
@@ -153,6 +152,7 @@ function BaseApplySettings()
 
   set background=dark
   colorscheme solarized
+  syntax on
 
   let g:airline_powerline_fonts = 1
   let g:airline#extensions#ale#enabled = 1
@@ -166,8 +166,9 @@ function BaseApplySettings()
   let g:ale_fixers = {
   \   'javascript': ['eslint'],
   \}
+  let g:ale_javascript_eslint_use_global = 1
 
-  autocmd FileType markdown,mkd call pencil#init()
+  " autocmd FileType markdown,mkd call pencil#init()
 
   " autocmd vimenter * NERDTree
   autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif

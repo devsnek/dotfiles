@@ -9,3 +9,4 @@
 *.exe diff=bin
 *.png diff=bin
 *.jpg diff=bin
+*.wasm diff=bin
