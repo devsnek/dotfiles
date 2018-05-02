@@ -25,16 +25,12 @@ if command --search nvim >/dev/null do
 end
 
 function ls
-  set argv "--time-style=long-iso" $argv
+  set argv "--time-style=long-iso" "-h" $argv
   if command --search exa >/dev/null do
-    exa $argv
+    exa --git $argv
   else
     ls $argv
   end
-end
-
-if command --search exa >/dev/null do
-  alias ls exa
 end
 
 alias .. "cd .."

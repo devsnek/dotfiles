@@ -15,8 +15,6 @@ set nocompatible
 
 function BaseGetPlugins()
   return [
-\   'altercation/vim-colors-solarized',
-\   'sickill/vim-monokai',
 \   'vim-airline/vim-airline',
 \   'vim-airline/vim-airline-themes',
 \   'w0rp/ale',
@@ -151,12 +149,11 @@ set smartcase       " ...unless we type a capital
 function BaseApplySettings()
 
   set background=dark
-  colorscheme solarized
   syntax on
 
   let g:airline_powerline_fonts = 1
+  let g:airline_theme = 'term'
   let g:airline#extensions#ale#enabled = 1
-  let g:airline_solarized_normal_green = 1
   let g:javascript_plugin_jsdoc = 1
 
   let g:vim_markdown_folding_disabled = 1
