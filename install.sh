@@ -29,6 +29,7 @@ install .gitconfig
 install .gitattributes
 
 install config.fish "$HOME/.config/fish"
+install htoprc "$HOME/.config/htop"
 
 install init.vim "$HOME/.config/nvim"
 install .vimrc

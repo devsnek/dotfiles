@@ -80,3 +80,4 @@ git config --global alias.fast '!git add . && git add -A . && git commit -S -m $
 
 test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shell_integration.fish
 set -g fish_user_paths "/usr/local/sbin" $fish_user_paths
+set -g fish_user_paths "/usr/local/opt/llvm/bin" $fish_user_paths

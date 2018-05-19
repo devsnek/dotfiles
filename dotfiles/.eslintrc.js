@@ -63,5 +63,7 @@ module.exports = {
     WebAssembly: false,
     BigInt: false,
     URL: false,
+    Atomics: false,
+    SharedArrayBuffer: false,
   },
 };
