@@ -1,4 +1,4 @@
-for p in $HOME/bin $HOME/.cargo/bin $HOME/go/bin $HOME/bin/emsdk-portable $HOME/.npm-global/bin $HOME/.jsvu $HOME/Desktop/tools/depot_tools
+for p in $HOME/bin $HOME/n/bin $HOME/.npm-global/bin $HOME/.jsvu # $HOME/Desktop/tools/depot_tools
   if test -d $p
     set -gx PATH $p $PATH;
   end
@@ -80,4 +80,10 @@ git config --global alias.fast '!git add . && git add -A . && git commit -S -m $
 
 test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shell_integration.fish
 set -g fish_user_paths "/usr/local/sbin" $fish_user_paths
-set -g fish_user_paths "/usr/local/opt/llvm/bin" $fish_user_paths
+set -g fish_user_paths "/usr/local/opt/icu4c/bin" $fish_user_paths
+set -g fish_user_paths "/usr/local/opt/icu4c/sbin" $fish_user_paths
+
+set -gx N_PREFIX "$HOME/n"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/gus/google-cloud-sdk/path.fish.inc' ]; if type source > /dev/null; source '/Users/gus/google-cloud-sdk/path.fish.inc'; else; . '/Users/gus/google-cloud-sdk/path.fish.inc'; end; end

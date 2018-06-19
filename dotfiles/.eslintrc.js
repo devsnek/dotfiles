@@ -38,6 +38,7 @@ module.exports = {
     },
   ],
   rules: {
+    'no-shadow-restricted-names': 'off', // breaks optional catch binding; don't name your args "eval", thx
     'strict': ['error', 'global'],
     'no-bitwise': 'off',
     'no-iterator': 'off',

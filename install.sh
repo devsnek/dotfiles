@@ -40,12 +40,17 @@ install .eslintrc.js
 
 warn "Installing misc deps"
 
-gitstall https://github.com/VundleVim/Vundle.vim.git "$HOME/.vim/bundle/Vundle.vim"
-gitstall https://github.com/Shougo/dein.vim "$HOME/.config/nvim/plugins/repos/github.com/Shougo/dein.vim"
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 warn "Running misc commands"
 
-$(which vim) +PluginInstall +qall
+$(which vim) +PlugUpdate +qall
+if command -v neovim; then
+  $(which neovim) +PlugUpdate +qall
+fi
 
 curl -L https://iterm2.com/shell_integration/fish -o ~/.iterm2_shell_integration.fish
 

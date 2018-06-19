@@ -2,31 +2,41 @@ if &compatible
   set nocompatible
 endif
 
-set runtimepath+=~/.config/nvim/plugins/repos/github.com/Shougo/dein.vim
 set runtimepath+=~/.config/nvim/rplugin
 
 source ~/base.vim
 
-if dein#load_state('~/.config/nvim/plugins')
-  call dein#begin('~/.config/nvim/plugins')
-  call dein#add('~/.config/nvim/plugins/repos/github.com/Shougo/dein.vim')
+call plug#begin('~/.local/share/nvim/plugged')
 
-  for plugin in BaseGetPlugins()
-    call dein#add(plugin)
-  endfor
+for plugin in BaseGetPlugins()
+  Plug(plugin)
+endfor
 
-  call dein#add('neovim/node-host')
-  call dein#add('mklabs/split-term.vim')
+Plug 'neovim/node-host'
+Plug 'mklabs/split-term.vim'
 
-  call dein#end()
-  call dein#save_state()
-endif
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
+
+Plug 'junegunn/fzf'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+
+call plug#end()
 
 call BaseApplySettings()
 
 set splitbelow splitright
 au BufEnter * if &buftype == 'terminal' | :startinsert | endif
 
-if dein#check_install()
-  call dein#install()
-endif
+let g:LanguageClient_serverCommands = {
+    \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
+    \ 'javascript': ['javascript-typescript-stdio'],
+    \ 'python': ['pyls'],
+    \ }
+
+nnoremap <F5> :call LanguageClient_contextMenu()<CR>
+nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
+nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
+nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>

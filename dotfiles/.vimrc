@@ -5,14 +5,11 @@ set directory^=$HOME/.vim/tmp//
 
 source ~/base.vim
 
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
+call plug#begin('~/.vim/plugged')
 for plugin in BaseGetPlugins()
-  Plugin plugin
+  Plug plugin
 endfor
-
-call vundle#end()
+call plug#end()
 
 call BaseApplySettings()
 
