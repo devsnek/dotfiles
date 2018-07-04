@@ -1,4 +1,4 @@
-for p in $HOME/bin $HOME/n/bin $HOME/.npm-global/bin $HOME/.jsvu # $HOME/Desktop/tools/depot_tools
+for p in $HOME/bin $HOME/n/bin $HOME/.npm-global/bin $HOME/.jsvu $HOME/Desktop/tools/depot_tools
   if test -d $p
     set -gx PATH $p $PATH;
   end

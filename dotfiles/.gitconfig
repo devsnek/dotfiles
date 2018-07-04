@@ -12,7 +12,7 @@
 [apply]
   whitespace = fix
 [http]
-  cookiefile = /Users/gus/.gitcookies
+	cookiefile = /Users/gus/.gitcookies
 [commit]
   gpgsign = true
 [diff "zip"]

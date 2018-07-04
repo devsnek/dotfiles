@@ -29,7 +29,6 @@ function BaseGetPlugins()
 \   'wincent/terminus',
 \   'cespare/vim-toml',
 \   'octol/vim-cpp-enhanced-highlight',
-\   'reedes/vim-pencil'
 \ ]
 endfunction
 
@@ -43,7 +42,7 @@ set visualbell                  "No sounds
 set autoread                    "Reload files changed outside vim
 set guicursor=                  "Use nice cursor
 set whichwrap+=<,>,h,l,[,]      "remap movement keys
-set mouse=a                     "Enable better mouse support
+" set mouse=a                     "Enable better mouse support
 set nu
 
 " This makes vim act like all other editors, buffers can
@@ -150,9 +149,8 @@ function BaseApplySettings()
   \}
   let g:ale_javascript_eslint_use_global = 1
 
-  " autocmd FileType markdown,mkd call pencil#init()
+  let g:deoplete#enable_at_startup = 1
 
-  " autocmd vimenter * NERDTree
-  autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-
+  autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+  autocmd BufEnter * set mouse=
 endfunction

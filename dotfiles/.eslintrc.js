@@ -38,7 +38,6 @@ module.exports = {
     },
   ],
   rules: {
-    'no-shadow-restricted-names': 'off', // breaks optional catch binding; don't name your args "eval", thx
     'strict': ['error', 'global'],
     'no-bitwise': 'off',
     'no-iterator': 'off',
@@ -54,6 +53,9 @@ module.exports = {
     'object-curly-newline': 'off',
     'prefer-const': ['error', { destructuring: 'all' }],
     'class-methods-use-this': 'off',
+    'operator-linebreak': ['error', 'after'],
+    'implicit-arrow-linebreak': 'off',
+    'react/no-this-in-sfc': 'off',
     'import/no-dynamic-require': 'off',
     'import/no-extraneous-dependencies': ['error', {
       devDependencies: true,
@@ -63,6 +65,8 @@ module.exports = {
   globals: {
     WebAssembly: false,
     BigInt: false,
+    BigInt64Array,
+    BigUint64Array,
     URL: false,
     Atomics: false,
     SharedArrayBuffer: false,
