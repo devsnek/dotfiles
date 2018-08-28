@@ -29,6 +29,8 @@ function BaseGetPlugins()
 \   'wincent/terminus',
 \   'cespare/vim-toml',
 \   'octol/vim-cpp-enhanced-highlight',
+\   'vim-scripts/bnf.vim',
+\   '/Users/gus/Desktop/v8/tools/torque/vim-torque',
 \ ]
 endfunction
 
@@ -44,6 +46,7 @@ set guicursor=                  "Use nice cursor
 set whichwrap+=<,>,h,l,[,]      "remap movement keys
 set mouse=a                     "Enable better mouse support
 set nu
+set guicursor=
 
 " This makes vim act like all other editors, buffers can
 " exist in the background without being in a window.
@@ -130,6 +133,7 @@ set hlsearch        " Highlight searches by default
 set ignorecase      " Ignore case when searching...
 set smartcase       " ...unless we type a capital
 
+
 function BaseApplySettings()
 
   set background=dark
@@ -140,6 +144,7 @@ function BaseApplySettings()
   let g:airline#extensions#ale#enabled = 1
   let g:javascript_plugin_jsdoc = 1
 
+  let g:vim_markdown_conceal = 0
   let g:vim_markdown_folding_disabled = 1
   set conceallevel=2
   let g:vim_markdown_fenced_languages = ['py=python', 'js=javascript']
@@ -150,6 +155,8 @@ function BaseApplySettings()
   let g:ale_javascript_eslint_use_global = 1
 
   let g:deoplete#enable_at_startup = 1
+
+  nnoremap <silent> <C-l> :nohl<CR><C-l>
 
   autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 endfunction

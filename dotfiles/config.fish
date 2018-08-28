@@ -29,8 +29,17 @@ function ls
   if command --search exa >/dev/null do
     exa --git $argv
   else
-    ls $argv
+    eval (which ls) $argv
   end
+end
+
+if command --search ccat >/dev/null do
+  alias cat "ccat --bg=dark"
+end
+
+if command --search ccache >/dev/null do
+  set -gx CXX "ccache clang++"
+  set -gx CC "ccache clang"
 end
 
 alias .. "cd .."
@@ -48,7 +57,7 @@ alias timer 'echo "Timer started. Stop with Ctrl-D."; and date; and time cat; an
 alias sniff "sudo ngrep -d 'en1' -t '^(GET|POST) ' 'tcp and port 80'"
 alias httpdump 'sudo tcpdump -i en1 -n -s 0 -w - | grep -a -o -E "Host\: .*|GET \/.*"'
 
-for method in GET HEAD POST PUT DELETE TRACE OPTIONS
+for method in GET HEAD POST PUT PATCH DELETE TRACE OPTIONS
   alias "$method"="https '$method'"
 end
 
@@ -84,6 +93,10 @@ set -g fish_user_paths "/usr/local/opt/icu4c/bin" $fish_user_paths
 set -g fish_user_paths "/usr/local/opt/icu4c/sbin" $fish_user_paths
 
 set -gx N_PREFIX "$HOME/n"
+
+set -gx NODE_EXTERNAL_REPL_MODULE (which node-prototype-repl)
+
+function fish_vi_cursor ; end
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/gus/google-cloud-sdk/path.fish.inc' ]; if type source > /dev/null; source '/Users/gus/google-cloud-sdk/path.fish.inc'; else; . '/Users/gus/google-cloud-sdk/path.fish.inc'; end; end
