@@ -13,6 +13,8 @@ set -gx EDITOR vim
 set -gx TIME_STYLE long-iso
 set -gx NPM_CONFIG_PREFIX ~/.npm-global
 set -gx PYTHONDONTWRITEBYTECODE plz
+set -gx PUPPETEER_SKIP_CHROMIUM_DOWNLOAD true
+set -gx PUPPETEER_EXECUTABLE_PATH /Applications/Chromium.app/Contents/MacOS/Chromium
 
 alias https "http --default-scheme=https"
 alias lua "echo lolno"

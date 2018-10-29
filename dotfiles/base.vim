@@ -158,5 +158,7 @@ function BaseApplySettings()
 
   nnoremap <silent> <C-l> :nohl<CR><C-l>
 
+  autocmd BufNewFile,BufRead *.bs   set syntax=html
+
   autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 endfunction

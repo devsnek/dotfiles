@@ -55,3 +55,4 @@ fi
 curl -L https://iterm2.com/shell_integration/fish -o ~/.iterm2_shell_integration.fish
 
 tic -o ~/.terminfo -x "$(pwd)/dotfiles/xterm-256color-italic.terminfo"
+tic -o ~/.terminfo -x "$(pwd)/dotfiles/xterm-kitty.terminfo"
