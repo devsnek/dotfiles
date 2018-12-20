@@ -30,6 +30,7 @@ function BaseGetPlugins()
 \   'cespare/vim-toml',
 \   'octol/vim-cpp-enhanced-highlight',
 \   'vim-scripts/bnf.vim',
+\   'reasonml-editor/vim-reason-plus',
 \   '/Users/gus/Desktop/v8/tools/torque/vim-torque',
 \ ]
 endfunction

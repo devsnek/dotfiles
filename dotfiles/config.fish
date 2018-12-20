@@ -4,6 +4,8 @@ for p in $HOME/bin $HOME/n/bin $HOME/.npm-global/bin $HOME/.jsvu $HOME/Desktop/t
   end
 end
 
+set -gx PATH /usr/local/share/pypy3 $PATH
+
 if test -d $HOME/Documents/filmic-blender-master
   set -gx OCIO $HOME/Documents/filmic-blender-master/config.ocio
 end
@@ -99,6 +101,3 @@ set -gx N_PREFIX "$HOME/n"
 set -gx NODE_EXTERNAL_REPL_MODULE (which node-prototype-repl)
 
 function fish_vi_cursor ; end
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/gus/google-cloud-sdk/path.fish.inc' ]; if type source > /dev/null; source '/Users/gus/google-cloud-sdk/path.fish.inc'; else; . '/Users/gus/google-cloud-sdk/path.fish.inc'; end; end
