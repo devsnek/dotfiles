@@ -2,8 +2,8 @@ if &compatible
   set nocompatible
 endif
 
-let g:python_host_prog = $HOME . '/.pyenv/shims/python2'
-let g:python3_host_prog = $HOME . '/.pyenv/shims/python3'
+let g:python_host_prog = '/usr/local/bin/pypy'
+let g:python3_host_prog = '/usr/local/bin/pypy3'
 
 set runtimepath+=~/.config/nvim/rplugin
 

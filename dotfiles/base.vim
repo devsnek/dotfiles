@@ -31,6 +31,11 @@ function BaseGetPlugins()
 \   'octol/vim-cpp-enhanced-highlight',
 \   'vim-scripts/bnf.vim',
 \   'reasonml-editor/vim-reason-plus',
+\   '/usr/local/opt/fzf',
+\   'junegunn/fzf.vim',
+\   'msanders/cocoa.vim',
+\   'vhda/verilog_systemverilog.vim',
+\   '/Users/gus/Desktop/projects/vim-wasm',
 \   '/Users/gus/Desktop/v8/tools/torque/vim-torque',
 \ ]
 endfunction
