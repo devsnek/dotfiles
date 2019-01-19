@@ -15,7 +15,7 @@ for plugin in BaseGetPlugins()
   Plug(plugin)
 endfor
 
-Plug 'neovim/node-host'
+" Plug 'neovim/node-host'
 Plug 'mklabs/split-term.vim'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
