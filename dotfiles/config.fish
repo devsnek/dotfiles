@@ -1,4 +1,4 @@
-for p in $HOME/bin $HOME/n/bin $HOME/.npm-global/bin $HOME/.jsvu $HOME/Desktop/tools/depot_tools $HOME/Desktop/tools/wabt/bin
+for p in $HOME/bin $HOME/n/bin $HOME/.npm-global/bin $HOME/.jsvu $HOME/Desktop/tools/depot_tools $HOME/Desktop/tools/wabt/bin $HOME/.cargo/bin
   if test -d $p
     set -gx PATH $p $PATH;
   end
@@ -16,7 +16,7 @@ set -gx TIME_STYLE long-iso
 set -gx NPM_CONFIG_PREFIX ~/.npm-global
 set -gx PYTHONDONTWRITEBYTECODE plz
 set -gx PUPPETEER_SKIP_CHROMIUM_DOWNLOAD true
-set -gx PUPPETEER_EXECUTABLE_PATH /Applications/Chromium.app/Contents/MacOS/Chromium
+set -gx PUPPETEER_EXECUTABLE_PATH "/Applications/Google Chrome Canary.app/Contents/MacOS/Google Chrome Canary"
 
 alias https "http --default-scheme=https"
 alias lua "echo lolno"

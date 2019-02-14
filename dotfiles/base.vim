@@ -16,24 +16,16 @@ function BaseGetPlugins()
 \   'scrooloose/nerdtree',
 \   'dag/vim-fish',
 \   'mileszs/ack.vim',
-\   'mustache/vim-mustache-handlebars',
-\   'posva/vim-vue',
 \   'editorconfig/editorconfig-vim',
 \   'wakatime/vim-wakatime',
 \   'tomlion/vim-solidity',
-\   'peterhoeg/vim-qml',
 \   'kelan/gyp.vim',
 \   'leafgarland/typescript-vim',
-\   'lluchs/vim-wren',
-\   'terryma/vim-multiple-cursors',
 \   'wincent/terminus',
 \   'cespare/vim-toml',
 \   'octol/vim-cpp-enhanced-highlight',
 \   'vim-scripts/bnf.vim',
-\   'reasonml-editor/vim-reason-plus',
-\   '/usr/local/opt/fzf',
-\   'junegunn/fzf.vim',
-\   'msanders/cocoa.vim',
+\   'rhysd/vim-rustpeg',
 \   'vhda/verilog_systemverilog.vim',
 \   '/Users/gus/Desktop/projects/vim-wasm',
 \   '/Users/gus/Desktop/v8/tools/torque/vim-torque',
@@ -165,6 +157,7 @@ function BaseApplySettings()
   nnoremap <silent> <C-l> :nohl<CR><C-l>
 
   autocmd BufNewFile,BufRead *.bs   set syntax=html
+  autocmd BufNewFile,BufRead *.sl   set syntax=javascript
 
   autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 endfunction
