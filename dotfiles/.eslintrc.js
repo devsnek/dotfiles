@@ -1,14 +1,11 @@
 'use strict';
 
 module.exports = {
-  extends: 'airbnb',
+  extends: 'airbnb-base',
   parser: 'babel-eslint',
   parserOptions: {
     ecmaVersion: 2018,
     sourceType: 'script',
-    ecmaFeatures: {
-      experimentalObjectRestSpread: true,
-    },
   },
   env: {
     es6: true,
@@ -54,7 +51,6 @@ module.exports = {
     'prefer-const': ['error', { destructuring: 'all' }],
     'class-methods-use-this': 'off',
     'implicit-arrow-linebreak': 'off',
-    'react/no-this-in-sfc': 'off',
     'import/no-dynamic-require': 'off',
     'import/no-extraneous-dependencies': ['error', {
       devDependencies: true,
