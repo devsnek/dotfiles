@@ -20,6 +20,7 @@ set -gx PUPPETEER_EXECUTABLE_PATH "/Applications/Google Chrome Canary.app/Conten
 
 alias https "http --default-scheme=https"
 alias lua "echo lolno"
+alias nano "echo lolno"
 alias vi vim
 
 set fish_greeting ""
@@ -37,8 +38,8 @@ function ls
   end
 end
 
-if command --search ccat >/dev/null do
-  alias cat "ccat --bg=dark"
+if command --search bat >/dev/null do
+  alias cat "bat --style=numbers"
 end
 
 if command --search ccache >/dev/null do

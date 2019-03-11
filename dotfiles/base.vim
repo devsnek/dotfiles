@@ -27,8 +27,10 @@ function BaseGetPlugins()
 \   'vim-scripts/bnf.vim',
 \   'rhysd/vim-rustpeg',
 \   'vhda/verilog_systemverilog.vim',
+\   'ajh17/VimCompletesMe',
 \   '/Users/gus/Desktop/projects/vim-wasm',
 \   '/Users/gus/Desktop/v8/tools/torque/vim-torque',
+\   '/Users/gus/Desktop/projects/slither/vim-slither'
 \ ]
 endfunction
 
@@ -157,7 +159,7 @@ function BaseApplySettings()
   nnoremap <silent> <C-l> :nohl<CR><C-l>
 
   autocmd BufNewFile,BufRead *.bs   set syntax=html
-  autocmd BufNewFile,BufRead *.sl   set syntax=javascript
+  autocmd BufNewFile,BufRead *.sl   set syntax=slither
 
   autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 endfunction

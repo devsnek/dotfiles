@@ -4,6 +4,10 @@ endif
 
 let g:python_host_prog = '/usr/local/bin/pypy'
 let g:python3_host_prog = '/usr/local/bin/pypy3'
+let g:python_host_skip_check = 1
+let g:python3_host_skip_check = 1
+let g:loaded_python_provider = 1
+let g:loaded_python3_provider = 1
 
 set runtimepath+=~/.config/nvim/rplugin
 
@@ -17,7 +21,6 @@ endfor
 
 " Plug 'neovim/node-host'
 Plug 'mklabs/split-term.vim'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
 call plug#end()
 
