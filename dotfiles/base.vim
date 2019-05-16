@@ -27,7 +27,7 @@ function BaseGetPlugins()
 \   'vim-scripts/bnf.vim',
 \   'rhysd/vim-rustpeg',
 \   'vhda/verilog_systemverilog.vim',
-\   'ajh17/VimCompletesMe',
+\   'racer-rust/vim-racer',
 \   '/Users/gus/Desktop/projects/vim-wasm',
 \   '/Users/gus/Desktop/v8/tools/torque/vim-torque',
 \   '/Users/gus/Desktop/projects/slither/vim-slither'

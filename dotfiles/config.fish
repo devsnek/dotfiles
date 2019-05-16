@@ -47,6 +47,9 @@ if command --search ccache >/dev/null do
   set -gx CC "ccache clang"
 end
 
+set -gx CC_wasm32_unknown_unknown "/opt/wasi-sdk/bin/clang"
+set -gx AR_wasm32_unknown_unknown "/opt/wasi-sdk/bin/llvm-ar"
+
 alias .. "cd .."
 alias ... "cd ../.."
 alias .... "cd ../../.."

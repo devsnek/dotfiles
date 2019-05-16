@@ -46,3 +46,5 @@
   binary = true
 [branch]
   autosetuprebase = always
+[cinnabar]
+	helper = /Users/gus/.mozbuild/git-cinnabar/git-cinnabar-helper
