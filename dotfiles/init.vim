@@ -2,8 +2,8 @@ if &compatible
   set nocompatible
 endif
 
-let g:python_host_prog = '/usr/local/bin/pypy'
-let g:python3_host_prog = '/usr/local/bin/pypy3'
+let g:python_host_prog = '/usr/bin/pypy'
+let g:python3_host_prog = '/usr/bin/pypy3'
 " let g:python_host_skip_check = 1
 " let g:python3_host_skip_check = 1
 " let g:loaded_python_provider = 1

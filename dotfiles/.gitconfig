@@ -12,7 +12,7 @@
 [apply]
   whitespace = fix
 [http]
-	cookiefile = /Users/gus/.gitcookies
+	cookiefile = /home/snek/.gitcookies
 [commit]
   gpgsign = true
 [diff "zip"]
@@ -47,4 +47,6 @@
 [branch]
   autosetuprebase = always
 [cinnabar]
-	helper = /Users/gus/.mozbuild/git-cinnabar/git-cinnabar-helper
+  helper = /Users/gus/.mozbuild/git-cinnabar/git-cinnabar-helper
+[credential]
+  helper = store

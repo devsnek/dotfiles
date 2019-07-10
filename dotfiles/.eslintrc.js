@@ -4,7 +4,7 @@ module.exports = {
   extends: 'airbnb-base',
   parser: 'babel-eslint',
   parserOptions: {
-    ecmaVersion: 2018,
+    ecmaVersion: 2020,
     sourceType: 'script',
   },
   env: {
@@ -36,6 +36,18 @@ module.exports = {
   ],
   rules: {
     'strict': ['error', 'global'],
+    'indent': ['error', 2, {
+      SwitchCase: 1,
+      FunctionDeclaration: {
+        parameters: 'first',
+      },
+      FunctionExpression: {
+        parameters: 'first',
+      },
+      CallExpression: {
+        arguments: 'first',
+      },
+    }],
     'no-bitwise': 'off',
     'no-iterator': 'off',
     'global-require': 'off',
@@ -51,11 +63,13 @@ module.exports = {
     'prefer-const': ['error', { destructuring: 'all' }],
     'class-methods-use-this': 'off',
     'implicit-arrow-linebreak': 'off',
+    'lines-between-class-members': 'off',
     'import/no-dynamic-require': 'off',
     'import/no-extraneous-dependencies': ['error', {
       devDependencies: true,
     }],
     'import/extensions': 'off',
+    'import/prefer-default-export': 'off',
   },
   globals: {
     WebAssembly: false,
@@ -65,6 +79,9 @@ module.exports = {
     URL: false,
     Atomics: false,
     SharedArrayBuffer: false,
+    globalThis: false,
+    FinalizationGroup: false,
+    WeakRef: false,
     queueMicrotask: false,
   },
 };

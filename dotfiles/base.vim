@@ -28,9 +28,9 @@ function BaseGetPlugins()
 \   'rhysd/vim-rustpeg',
 \   'vhda/verilog_systemverilog.vim',
 \   'racer-rust/vim-racer',
-\   '/Users/gus/Desktop/projects/vim-wasm',
-\   '/Users/gus/Desktop/v8/tools/torque/vim-torque',
-\   '/Users/gus/Desktop/projects/slither/vim-slither'
+\   '/home/snek/Desktop/projects/vim-wasm',
+\   '/home/snek/Desktop/misc/v8/v8/tools/torque/vim-torque',
+\   '/home/snek/Desktop/projects/slither/vim-slither'
 \ ]
 endfunction
 
