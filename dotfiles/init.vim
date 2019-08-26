@@ -22,6 +22,9 @@ endfor
 " Plug 'neovim/node-host'
 Plug 'mklabs/split-term.vim'
 
+Plug 'junegunn/fzf'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+
 call plug#end()
 
 call BaseApplySettings()
@@ -31,3 +34,5 @@ set guicursor=
 
 set splitbelow splitright
 au BufEnter * if &buftype == 'terminal' | :startinsert | endif
+
+let g:deoplete#enable_at_startup = 1

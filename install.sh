@@ -8,9 +8,9 @@ warn() {
   echo "$(tput setaf 1)$@$(tput sgr0)"
 }
 
-install() { 
+install() {
   local src="$(pwd)/dotfiles/$1"
-  local dst="${2:-$HOME}/$1"
+  local dst=${2:-"$HOME/$1"}
   info "linking $src to $dst"
   ln -sf $src $dst
 }
@@ -28,15 +28,19 @@ warn "Symlinking files"
 install .gitconfig
 install .gitattributes
 
-install config.fish "$HOME/.config/fish"
-install htoprc "$HOME/.config/htop"
+install config.fish "$HOME/.config/fish/config.fish"
+install htoprc "$HOME/.config/htop/htoprc"
 
-install init.vim "$HOME/.config/nvim"
+install init.vim "$HOME/.config/nvim/init.vim"
 install .vimrc
 install base.vim
 
 install .tmux.conf
 install .eslintrc.js
+
+if command -v bat; then
+  install bat_config $(bat --config-file)
+fi
 
 warn "Installing misc deps"
 
@@ -48,6 +52,6 @@ curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
 warn "Running misc commands"
 
 $(which vim) +PlugUpdate +qall
-if command -v neovim; then
-  $(which neovim) +PlugUpdate +qall
+if command -v nvim; then
+  $(which nvim) +PlugUpdate +qall
 fi

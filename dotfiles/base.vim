@@ -55,7 +55,7 @@ set hidden
 
 "move yanks to system clipboard
 if has('clipboard')
-  set clipboard=unnamed
+  set clipboard=unnamedplus
 end
 
 "refer to kspell for spelling

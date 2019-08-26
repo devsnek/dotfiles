@@ -1,0 +1,3 @@
+--map-syntax mjs:js
+--map-syntax wat:lisp
+--map-syntax wabt:lisp

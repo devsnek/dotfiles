@@ -3,15 +3,12 @@ set -gx EDITOR vim
 set -gx TIME_STYLE long-iso
 set -gx NPM_CONFIG_PREFIX "$HOME/.npm-global"
 set -gx PYTHONDONTWRITEBYTECODE plz
-set -gx DEVKITPRO /opt/devkitpro
-set -gx DEVKITARM /opt/devkitpro/devkitARM
-set -gx DEVKITPPC /opt/devkitpro/devkitPPC
 set -gx CC_wasm32_unknown_unknown "/opt/wasi-sdk/bin/clang"
 set -gx AR_wasm32_unknown_unknown "/opt/wasi-sdk/bin/llvm-ar"
 set -gx N_PREFIX "$HOME/n"
 set -gx NODE_ICU_DATA "$NPM_CONFIG_PREFIX/lib/node_modules/full-icu"
 
-for p in $HOME/bin $HOME/n/bin $HOME/.npm-global/bin $HOME/.jsvu $HOME/Desktop/tools/depot_tools $HOME/Desktop/tools/wabt/bin $HOME/.cargo/bin $HOME/.gem/ruby/2.6.0/bin
+for p in $HOME/bin $HOME/n/bin $HOME/.npm-global/bin $HOME/.jsvu $HOME/Desktop/tools/wabt/bin $HOME/.cargo/bin $HOME/.gem/ruby/2.6.0/bin $HOME/Desktop/tools/depot_tools
   if test -d $p
     set -gx PATH $p $PATH;
   end
