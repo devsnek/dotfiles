@@ -8,10 +8,6 @@ source ~/base.vim
 call plug#begin('~/.vim/plugged')
 for plugin in BaseGetPlugins()
   Plug plugin
-
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
 endfor
 call plug#end()
 

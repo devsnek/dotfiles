@@ -5,29 +5,7 @@ function BaseGetPlugins()
 \   'vim-airline/vim-airline',
 \   'vim-airline/vim-airline-themes',
 \   'w0rp/ale',
-\   'pangloss/vim-javascript',
-\   'moll/vim-node',
-\   'elzr/vim-json',
-\   'tpope/vim-fugitive',
-\   'plasticboy/vim-markdown',
-\   'godlygeek/tabular',
-\   'wellle/targets.vim',
-\   'tpope/vim-commentary',
-\   'scrooloose/nerdtree',
-\   'dag/vim-fish',
-\   'mileszs/ack.vim',
-\   'editorconfig/editorconfig-vim',
-\   'wakatime/vim-wakatime',
-\   'tomlion/vim-solidity',
-\   'kelan/gyp.vim',
-\   'leafgarland/typescript-vim',
-\   'wincent/terminus',
-\   'cespare/vim-toml',
-\   'octol/vim-cpp-enhanced-highlight',
-\   'racer-rust/vim-racer',
-\   '/home/snek/Desktop/projects/vim-wasm',
-\   '/home/snek/Desktop/misc/v8/v8/tools/torque/vim-torque',
-\   '/home/snek/Desktop/projects/slither/vim-slither'
+\   'sheerun/vim-polyglot',
 \ ]
 endfunction
 
@@ -57,15 +35,6 @@ end
 
 "refer to kspell for spelling
 set complete+=kspell
-
-" Change leader to a comma because the backslash is too far away
-" That means all \x commands turn into ,x
-" The mapleader has to be set before vundle starts loading all
-" the plugins.
-let mapleader=","
-
-autocmd BufRead,BufNewFile *.md setlocal spell
-autocmd FileType gitcommit setlocal spell
 
 " ================ Turn Off Swap Files ==============
 
@@ -130,34 +99,23 @@ set hlsearch        " Highlight searches by default
 set ignorecase      " Ignore case when searching...
 set smartcase       " ...unless we type a capital
 
+autocmd BufRead,BufNewFile *.md setlocal spell
+autocmd FileType gitcommit setlocal spell
+autocmd BufNewFile,BufRead *.bs   set syntax=html
+autocmd BufNewFile,BufRead *.sl   set syntax=slither
+autocmd BufNewFile,BufRead *.inc  set syntax=c
+nnoremap <silent> <C-l> :nohl<CR><C-l>
 
+" settings to be applied after plugins load
 function BaseApplySettings()
-
-  set background=dark
-  syntax on
-
   let g:airline_powerline_fonts = 1
   let g:airline_theme = 'term'
   let g:airline#extensions#ale#enabled = 1
-  let g:javascript_plugin_jsdoc = 1
-
-  let g:vim_markdown_conceal = 0
-  let g:vim_markdown_folding_disabled = 1
-  set conceallevel=2
-  let g:vim_markdown_fenced_languages = ['py=python', 'js=javascript']
 
   let g:ale_fixers = {
-  \   'javascript': ['eslint'],
-  \}
+\   'javascript': ['eslint'],
+\ }
   let g:ale_javascript_eslint_use_global = 1
-
-  let g:deoplete#enable_at_startup = 1
-
-  nnoremap <silent> <C-l> :nohl<CR><C-l>
-
-  autocmd BufNewFile,BufRead *.bs   set syntax=html
-  autocmd BufNewFile,BufRead *.sl   set syntax=slither
-  autocmd BufNewFile,BufRead *.inc  set syntax=c
 
   autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 endfunction
