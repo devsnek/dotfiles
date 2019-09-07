@@ -1,5 +1,7 @@
 'use strict';
 
+const path = require('path');
+
 module.exports = {
   extends: 'airbnb-base',
   parser: 'babel-eslint',

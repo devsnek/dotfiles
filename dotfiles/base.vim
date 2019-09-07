@@ -24,9 +24,6 @@ function BaseGetPlugins()
 \   'wincent/terminus',
 \   'cespare/vim-toml',
 \   'octol/vim-cpp-enhanced-highlight',
-\   'vim-scripts/bnf.vim',
-\   'rhysd/vim-rustpeg',
-\   'vhda/verilog_systemverilog.vim',
 \   'racer-rust/vim-racer',
 \   '/home/snek/Desktop/projects/vim-wasm',
 \   '/home/snek/Desktop/misc/v8/v8/tools/torque/vim-torque',
@@ -160,6 +157,7 @@ function BaseApplySettings()
 
   autocmd BufNewFile,BufRead *.bs   set syntax=html
   autocmd BufNewFile,BufRead *.sl   set syntax=slither
+  autocmd BufNewFile,BufRead *.inc  set syntax=c
 
   autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 endfunction
