@@ -12,18 +12,25 @@ set $right l
 
 font pango:DejaVu Sans Mono 8
 
+# Setup screen locking
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+
 # start NetworkManager
 exec --no-startup-id nm-applet
 
 # Audio controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id amixer sset Master 5%+
-bindsym XF86AudioLowerVolume exec --no-startup-id amixer sset Master 5%-
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym Shift+XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +1%
+bindsym Shift+XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -1%
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle
 
 # Screen brightness
-bindsym XF86MonBrightnessUp exec xbacklight -inc 10
-bindsym XF86MonBrightnessDown exec xbacklight -dec 10
+bindsym XF86MonBrightnessUp exec xbacklight -inc 5
+bindsym XF86MonBrightnessDown exec xbacklight -dec 5
+bindsym Shift+XF86MonBrightnessUp exec xbacklight -inc 1
+bindsym Shift+XF86MonBrightnessDown exec xbacklight -dec 1
 
 # Screenshot
 bindsym Print exec /home/snek/n/bin/node /home/snek/.npm-global/bin/snekshot
@@ -137,6 +144,6 @@ bindsym $mod+r mode "resize"
 
 bar {
         font pango:FiraCode 9
-        status_command /usr/bin/i3status-rs /home/snek/.config/i3/status.toml
+        status_command /home/snek/bin/i3status-rs /home/snek/.config/i3/status.toml
         position top
 }
