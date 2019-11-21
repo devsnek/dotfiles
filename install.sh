@@ -28,15 +28,19 @@ warn "Symlinking files"
 install .gitconfig
 install .gitattributes
 
+install i3/config "$HOME/.config/i3/config"
+install i3/status.toml "$HOME/.config/i3/status.toml"
+
 install config.fish "$HOME/.config/fish/config.fish"
 install htoprc "$HOME/.config/htop/htoprc"
 
-install init.vim "$HOME/.config/nvim/init.vim"
-install .vimrc
-install base.vim
+install vim/init.vim "$HOME/.config/nvim/init.vim"
+install vim/.vimrc "$HOME/.vimrc"
+install vim/base.vim "$HOME/base.vim"
 
-install .tmux.conf
 install .eslintrc.js
+
+install kitty.conf "$HOME/.config/kitty/kitty.conf"
 
 if command -v bat; then
   install bat_config $(bat --config-file)

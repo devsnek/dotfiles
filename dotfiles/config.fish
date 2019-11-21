@@ -2,16 +2,16 @@ set -gx theme_color_scheme solarized-dark
 set -gx EDITOR vim
 set -gx TIME_STYLE long-iso
 set -gx NPM_CONFIG_PREFIX "$HOME/.npm-global"
-set -gx PYTHONDONTWRITEBYTECODE plz
+set -gx PYTHONDONTWRITEBYTECODE 1
 set -gx CC_wasm32_unknown_unknown "/opt/wasi-sdk/bin/clang"
 set -gx AR_wasm32_unknown_unknown "/opt/wasi-sdk/bin/llvm-ar"
 set -gx N_PREFIX "$HOME/n"
 set -gx NODE_ICU_DATA "$NPM_CONFIG_PREFIX/lib/node_modules/full-icu"
+set -gx NODE_REPL_EXTERNAL_MODULE "$NPM_CONFIG_PREFIX/bin/node-prototype-repl"
 set -gx WASMTIME_HOME "$HOME/.wasmtime"
+set -gx TERMINAL "kitty"
 
-string match -r ".wasmtime" "$PATH" > /dev/null; or set -gx PATH "$WASMTIME_HOME/bin" $PATH
-
-for p in $HOME/bin $HOME/n/bin $HOME/.npm-global/bin $HOME/.jsvu $HOME/Desktop/tools/wabt/bin $HOME/.cargo/bin $HOME/.gem/ruby/2.6.0/bin $HOME/Desktop/tools/depot_tools
+for p in $HOME/bin $HOME/n/bin $HOME/.npm-global/bin $HOME/.jsvu $HOME/Desktop/tools/wabt/bin $HOME/.cargo/bin $HOME/.gem/ruby/2.6.0/bin $HOME/Desktop/tools/depot_tools $WASMTIME/bin /opt/gradle/gradle-5.6.2/bin
   if test -d $p
     set -gx PATH $p $PATH;
   end
@@ -33,7 +33,6 @@ if command --search nvim >/dev/null do
 end
 
 function ls
-  # set argv "--time-style=long-iso" "-h" $argv
   if command --search lsd >/dev/null do
     lsd $argv
   else
@@ -45,14 +44,14 @@ if command --search bat >/dev/null do
   alias cat "bat --style=numbers"
 end
 
+function rm
+  eval (which rm) -i $argv
+end
+
 alias .. "cd .."
 alias ... "cd ../.."
 alias .... "cd ../../.."
 alias ..... "cd ../../../.."
-
-alias uuid 'python -c "import uuid; print str(uuid.uuid4())"'
-
-alias timer 'echo "Timer started. Stop with Ctrl-D."; and date; and time cat; and date'
 
 function serveo
   ssh -R 80:localhost:$argv[1] serveo.net
@@ -62,7 +61,15 @@ function fu --description 'Run previous console command with sudo'
   commandline "sudo $history[1]"
 end
 
+function weather --description 'Show the current weather (based on IP)'
+  curl "https://wttr.in?days=0"
+end
+
 git config --global alias.fast '!git add . && git add -A . && git commit -S -m $argv'
 
 function fish_vi_cursor ; end
 set fish_greeting ""
+
+if command --search direnv >/dev/null do
+  direnv hook fish | source
+end

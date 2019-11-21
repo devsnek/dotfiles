@@ -13,7 +13,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 for plugin in BaseGetPlugins()
   Plug(plugin)
 endfor
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins', 'commit': '98566131d5f574ee2896138bdda08afa68bda416' }
 call plug#end()
 
 call BaseApplySettings()

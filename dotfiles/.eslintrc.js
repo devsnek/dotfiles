@@ -1,7 +1,5 @@
 'use strict';
 
-const path = require('path');
-
 module.exports = {
   extends: 'airbnb-base',
   parser: 'babel-eslint',
@@ -72,6 +70,7 @@ module.exports = {
     }],
     'import/extensions': 'off',
     'import/prefer-default-export': 'off',
+    'max-classes-per-file': 'off',
   },
   globals: {
     WebAssembly: false,

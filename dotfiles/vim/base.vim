@@ -2,10 +2,16 @@ set nocompatible
 
 function BaseGetPlugins()
   return [
+\   'chriskempson/base16-vim',
 \   'vim-airline/vim-airline',
 \   'vim-airline/vim-airline-themes',
 \   'w0rp/ale',
 \   'sheerun/vim-polyglot',
+\   'plasticboy/vim-markdown',
+\   'wakatime/vim-wakatime',
+\   '/home/snek/Desktop/projects/vim-wasm',
+\   '/home/snek/Desktop/misc/v8/v8/tools/torque/vim-torque',
+\   '/home/snek/Desktop/projects/slither/vim-slither'
 \ ]
 endfunction
 
@@ -14,14 +20,11 @@ set backspace=indent,eol,start  "Allow backspace in insert mode
 set history=1000                "Store lots of :cmdline history
 set showcmd                     "Show incomplete cmds down the bottom
 set showmode                    "Show current mode down the bottom
-set gcr=a:blinkon0              "Disable cursor blink
 set visualbell                  "No sounds
 set autoread                    "Reload files changed outside vim
-set guicursor=                  "Use nice cursor
 set whichwrap+=<,>,h,l,[,]      "remap movement keys
-set mouse=a                     "Enable better mouse support
-set nu
-set guicursor=
+set guicursor=n-v-c:block-Cursor "Use block cursor in normal/visual/selection
+set guicursor+=i:ver100-iCursor  "Use bar cursor in insert
 
 " This makes vim act like all other editors, buffers can
 " exist in the background without being in a window.
@@ -104,18 +107,27 @@ autocmd FileType gitcommit setlocal spell
 autocmd BufNewFile,BufRead *.bs   set syntax=html
 autocmd BufNewFile,BufRead *.sl   set syntax=slither
 autocmd BufNewFile,BufRead *.inc  set syntax=c
+autocmd BufNewFile,BufRead *.mjs  set filetype=javascript
 nnoremap <silent> <C-l> :nohl<CR><C-l>
 
 " settings to be applied after plugins load
 function BaseApplySettings()
+  set termguicolors
+  set background=dark
+  colors base16-default-dark
+
   let g:airline_powerline_fonts = 1
   let g:airline_theme = 'term'
   let g:airline#extensions#ale#enabled = 1
 
+  let g:ale_completion_enabled = 0
   let g:ale_fixers = {
 \   'javascript': ['eslint'],
 \ }
   let g:ale_javascript_eslint_use_global = 1
+
+  let g:polyglot_disabled = ['md', 'markdown', 'jsx']
+  let g:vim_markdown_fenced_languages = ['py=python', 'js=javascript']
 
   autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 endfunction
