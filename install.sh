@@ -30,8 +30,11 @@ install .gitattributes
 
 install redshift.conf "$HOME/.config/redshift/redshift.conf"
 
-install i3 "$HOME/.config/i3"
-install polybar "$HOME/.config/polybar"
+install i3.conf "$HOME/.config/i3/config"
+
+install polybar/config "$HOME/.config/polybar/config"
+install polybar/powermenu.ini "$HOME/.config/polybar/powermenu.ini"
+install polybar/start.sh "$HOME/.config/polybar/start.sh"
 
 install config.fish "$HOME/.config/fish/config.fish"
 install htoprc "$HOME/.config/htop/htoprc"
