@@ -18,8 +18,8 @@ for p in $HOME/bin $HOME/n/bin $HOME/.npm-global/bin $HOME/.jsvu $HOME/Desktop/t
 end
 
 if command --search ccache >/dev/null do
-  set -gx CXX "clang++"
-  set -gx CC "clang"
+  set -gx CXX "ccache clang++"
+  set -gx CC "ccache clang"
 end
 
 alias erc "$EDITOR ~/.config/fish/config.fish"
@@ -73,3 +73,6 @@ set fish_greeting ""
 if command --search direnv >/dev/null do
   direnv hook fish | source
 end
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/home/snek/google-cloud-sdk/path.fish.inc' ]; . '/home/snek/google-cloud-sdk/path.fish.inc'; end

@@ -28,8 +28,10 @@ warn "Symlinking files"
 install .gitconfig
 install .gitattributes
 
-install i3/config "$HOME/.config/i3/config"
-install i3/status.toml "$HOME/.config/i3/status.toml"
+install redshift.conf "$HOME/.config/redshift/redshift.conf"
+
+install i3 "$HOME/.config/i3"
+install polybar "$HOME/.config/polybar"
 
 install config.fish "$HOME/.config/fish/config.fish"
 install htoprc "$HOME/.config/htop/htoprc"
