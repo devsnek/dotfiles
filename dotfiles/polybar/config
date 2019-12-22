@@ -37,7 +37,8 @@ foreground = ${colors.foreground}
 line-size = 3
 line-color = #f00
 
-border-size = 4
+border-size = 0
+border-right-size=2
 border-color = #00000000
 
 padding-left = 0
@@ -52,7 +53,7 @@ font-2 = Siji:size=10;1
 
 modules-left = i3
 modules-center = date
-modules-right = pulseaudio xbacklight wlan eth battery powermenu
+modules-right = pulseaudio backlight wlan eth battery powermenu
 
 tray-position = right
 tray-padding = 2
@@ -90,11 +91,13 @@ label-urgent = %index%
 label-urgent-background = ${colors.alert}
 label-urgent-padding = 2
 
-[module/xbacklight]
-type = internal/xbacklight
+[module/backlight]
+type = internal/backlight
 
-format = <label>
 label = BL %percentage%%
+card = intel_backlight
+
+enable-scroll = true
 
 [module/wlan]
 type = internal/network

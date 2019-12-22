@@ -121,10 +121,11 @@ function BaseApplySettings()
   let g:airline#extensions#ale#enabled = 1
 
   let g:ale_completion_enabled = 0
-  let g:ale_fixers = {
+  let g:ale_linters = {
 \   'javascript': ['eslint'],
 \ }
   let g:ale_javascript_eslint_use_global = 1
+  let g:ale_linters_explicit = 1
 
   let g:polyglot_disabled = ['md', 'markdown', 'jsx']
   let g:vim_markdown_fenced_languages = ['py=python', 'js=javascript']
