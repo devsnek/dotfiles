@@ -71,12 +71,7 @@ filetype indent on
 set list listchars=tab:\ \ ,trail:·
 
 set nowrap       "Don't wrap lines
-
-" ================ Folds ============================
-
-set foldmethod=indent   "fold based on indent
-set foldnestmax=3       "deepest fold is 3 levels
-set nofoldenable        "dont fold by default
+set nofoldenable "dont fold by default
 
 " ================ Completion =======================
 
@@ -110,6 +105,10 @@ autocmd BufNewFile,BufRead *.inc  set syntax=c
 autocmd BufNewFile,BufRead *.mjs  set filetype=javascript
 nnoremap <silent> <C-l> :nohl<CR><C-l>
 
+if executable('rg')
+  set grepprg=rg\ --color=never
+endif
+
 " settings to be applied after plugins load
 function BaseApplySettings()
   set termguicolors
@@ -125,7 +124,6 @@ function BaseApplySettings()
 \   'javascript': ['eslint'],
 \ }
   let g:ale_javascript_eslint_use_global = 1
-  let g:ale_linters_explicit = 1
 
   let g:polyglot_disabled = ['md', 'markdown', 'jsx']
   let g:vim_markdown_fenced_languages = ['py=python', 'js=javascript']

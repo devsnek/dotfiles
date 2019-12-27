@@ -1,5 +1,21 @@
 'use strict';
 
+const Module = require('module');
+
+const hacks = [
+  'eslint-config-airbnb-base',
+  'babel-eslint',
+];
+
+const ModuleFindPath = Module._findPath;
+Module._findPath = (request, paths, isMain) => {
+  const r = ModuleFindPath(request, paths, isMain);
+  if (!r && hacks.includes(request)) {
+    return require.resolve(`${process.env.HOME}/.npm-global/lib/node_modules/${request}`);
+  }
+  return r;
+};
+
 module.exports = {
   extends: 'airbnb-base',
   parser: 'babel-eslint',

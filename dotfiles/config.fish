@@ -45,7 +45,7 @@ if command --search bat >/dev/null do
 end
 
 function rm
-  eval (which rm) -i $argv
+  /usr/bin/rm -i $argv
 end
 
 alias .. "cd .."
