@@ -5,6 +5,8 @@ const Module = require('module');
 const hacks = [
   'eslint-config-airbnb-base',
   'babel-eslint',
+
+  'eslint-plugin-import', // dep of airbnb-base
 ];
 
 const ModuleFindPath = Module._findPath;
