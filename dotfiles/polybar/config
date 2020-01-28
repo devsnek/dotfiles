@@ -151,7 +151,13 @@ full-at = 99
 
 format-charging = Charging <label-charging>
 
-format-discharging = Discharging <label-discharging>
+format-discharging = Discharging <ramp-capacity><label-discharging>
+
+ramp-capacity-0 = %{o#ff0000 +o}
+ramp-capacity-1 =
+ramp-capacity-2 =
+ramp-capacity-3 =
+ramp-capacity-4 =
 
 ; POWERMENU
 include-file = ~/.config/polybar/powermenu.ini

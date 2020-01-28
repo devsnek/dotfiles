@@ -9,20 +9,18 @@ function BaseGetPlugins()
 \   'sheerun/vim-polyglot',
 \   'plasticboy/vim-markdown',
 \   'wakatime/vim-wakatime',
+\   'editorconfig/editorconfig-vim',
 \   '/home/snek/Desktop/projects/vim-wasm',
 \   '/home/snek/Desktop/misc/v8/v8/tools/torque/vim-torque',
 \   '/home/snek/Desktop/projects/slither/vim-slither'
 \ ]
 endfunction
 
-set number                      "Line numbers are good
-set backspace=indent,eol,start  "Allow backspace in insert mode
-set history=1000                "Store lots of :cmdline history
-set showcmd                     "Show incomplete cmds down the bottom
-set showmode                    "Show current mode down the bottom
-set visualbell                  "No sounds
-set autoread                    "Reload files changed outside vim
-set whichwrap+=<,>,h,l,[,]      "remap movement keys
+set number                       "Line numbers are good
+set history=1000                 "Store lots of :cmdline history
+set showcmd                      "Show incomplete cmds down the bottom
+set visualbell                   "No sounds
+set autoread                     "Reload files changed outside vim
 set guicursor=n-v-c:block-Cursor "Use block cursor in normal/visual/selection
 set guicursor+=i:ver100-iCursor  "Use bar cursor in insert
 
@@ -104,10 +102,6 @@ autocmd BufNewFile,BufRead *.sl   set syntax=slither
 autocmd BufNewFile,BufRead *.inc  set syntax=c
 autocmd BufNewFile,BufRead *.mjs  set filetype=javascript
 nnoremap <silent> <C-l> :nohl<CR><C-l>
-
-if executable('rg')
-  set grepprg=rg\ --color=never
-endif
 
 " settings to be applied after plugins load
 function BaseApplySettings()
