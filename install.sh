@@ -31,6 +31,7 @@ install .gitattributes
 install redshift.conf "$HOME/.config/redshift/redshift.conf"
 
 install i3.conf "$HOME/.config/i3/config"
+install lock.sh "$HOME/.config/i3/lock.sh"
 
 install polybar/config "$HOME/.config/polybar/config"
 install polybar/powermenu.ini "$HOME/.config/polybar/powermenu.ini"

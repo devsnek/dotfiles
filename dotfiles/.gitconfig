@@ -50,3 +50,5 @@
   helper = /Users/gus/.mozbuild/git-cinnabar/git-cinnabar-helper
 [credential]
   helper = store
+[color]
+	ui = auto
