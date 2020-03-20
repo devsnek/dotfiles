@@ -3,8 +3,8 @@ set -gx EDITOR vim
 set -gx TIME_STYLE long-iso
 set -gx NPM_CONFIG_PREFIX "$HOME/.npm-global"
 set -gx PYTHONDONTWRITEBYTECODE 1
-set -gx CC_wasm32_unknown_unknown "/opt/wasi-sdk/bin/clang"
-set -gx AR_wasm32_unknown_unknown "/opt/wasi-sdk/bin/llvm-ar"
+set -gx CC_wasm32_unknown_unknown "$HOME/Desktop/tools/wasi-sdk/wasi-sdk/bin/clang"
+set -gx AR_wasm32_unknown_unknown "$HOME/Desktop/tools/wasi-sdi/wasi-sdk/bin/llvm-ar"
 set -gx N_PREFIX "$HOME/n"
 set -gx NODE_REPL_EXTERNAL_MODULE "$NPM_CONFIG_PREFIX/bin/node-prototype-repl"
 set -gx TERMINAL "kitty"
