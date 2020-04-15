@@ -12,7 +12,7 @@ function BaseGetPlugins()
 \   'editorconfig/editorconfig-vim',
 \   '/home/snek/Desktop/projects/vim-wasm',
 \   '/home/snek/Desktop/misc/v8/v8/tools/torque/vim-torque',
-\   '/home/snek/Desktop/projects/slither/vim-slither'
+\   '/home/snek/Desktop/projects/unnamed_lang/vim'
 \ ]
 endfunction
 
@@ -97,10 +97,6 @@ set smartcase       " ...unless we type a capital
 
 autocmd BufRead,BufNewFile *.md setlocal spell
 autocmd FileType gitcommit setlocal spell
-autocmd BufNewFile,BufRead *.bs   set syntax=html
-autocmd BufNewFile,BufRead *.sl   set syntax=slither
-autocmd BufNewFile,BufRead *.inc  set syntax=c
-autocmd BufNewFile,BufRead *.mjs  set filetype=javascript
 nnoremap <silent> <C-l> :nohl<CR><C-l>
 
 " settings to be applied after plugins load
@@ -121,6 +117,11 @@ function BaseApplySettings()
 
   let g:polyglot_disabled = ['md', 'markdown', 'jsx']
   let g:vim_markdown_fenced_languages = ['py=python', 'js=javascript']
+
+  autocmd BufNewFile,BufRead *.bs   set syntax=html
+  autocmd BufNewFile,BufRead *.sl   set syntax=slither
+  autocmd BufNewFile,BufRead *.inc  set syntax=c
+  autocmd BufNewFile,BufRead *.mjs  set filetype=javascript
 
   autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 endfunction

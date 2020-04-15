@@ -99,7 +99,7 @@ module.exports = {
     Atomics: false,
     SharedArrayBuffer: false,
     globalThis: false,
-    FinalizationGroup: false,
+    FinalizationRegistry: false,
     WeakRef: false,
     queueMicrotask: false,
   },
