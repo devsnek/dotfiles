@@ -9,11 +9,13 @@ const hacks = [
   'eslint-plugin-import', // dep of airbnb-base
 ];
 
+const NPM_PREFIX = process.env.NPM_CONFIG_PREFIX || '/usr/local';
+
 const ModuleFindPath = Module._findPath;
 Module._findPath = (request, paths, isMain) => {
   const r = ModuleFindPath(request, paths, isMain);
   if (!r && hacks.includes(request)) {
-    return require.resolve(`${process.env.HOME}/.npm-global/lib/node_modules/${request}`);
+    return require.resolve(`${NPM_PREFIX}/lib/node_modules/${request}`);
   }
   return r;
 };

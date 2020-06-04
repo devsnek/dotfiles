@@ -9,15 +9,15 @@ set -gx N_PREFIX "$HOME/n"
 set -gx NODE_REPL_EXTERNAL_MODULE "$NPM_CONFIG_PREFIX/bin/node-prototype-repl"
 set -gx TERMINAL "kitty"
 
-for p in $HOME/bin $HOME/n/bin $HOME/.npm-global/bin $HOME/.esvu/bin $HOME/Desktop/tools/wabt/bin $HOME/.cargo/bin $HOME/.gem/ruby/2.6.0/bin $HOME/Desktop/tools/depot_tools $WASMTIME/bin /opt/gradle/gradle-5.6.2/bin
+for p in $HOME/bin $HOME/n/bin $HOME/.npm-global/bin $HOME/.esvu/bin $HOME/Desktop/tools/wabt/bin $HOME/.cargo/bin $HOME/.gem/ruby/2.6.0/bin $HOME/Desktop/tools/depot_tools $WASMTIME/bin /usr/lib/ccache/bin
   if test -d $p
     set -gx PATH $p $PATH;
   end
 end
 
 if command --search ccache >/dev/null do
-  set -gx CXX "ccache clang++"
-  set -gx CC "ccache clang"
+  set -gx CXX "clang++"
+  set -gx CC "clang"
 end
 
 alias erc "$EDITOR ~/.config/fish/config.fish"

@@ -28,8 +28,6 @@ warn "Symlinking files"
 install .gitconfig
 install .gitattributes
 
-install redshift.conf "$HOME/.config/redshift/redshift.conf"
-
 install i3.conf "$HOME/.config/i3/config"
 install lock.sh "$HOME/.config/i3/lock.sh"
 
@@ -39,6 +37,7 @@ install polybar/start.sh "$HOME/.config/polybar/start.sh"
 
 install config.fish "$HOME/.config/fish/config.fish"
 install htoprc "$HOME/.config/htop/htoprc"
+install dunstrc "$HOME/.config/dunst/dunstrc"
 
 install vim/init.vim "$HOME/.config/nvim/init.vim"
 install vim/.vimrc "$HOME/.vimrc"
