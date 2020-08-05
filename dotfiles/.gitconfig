@@ -42,7 +42,7 @@
 [diff "bin"]
   textconv = hexdump -v -C
 [diff "wasm"]
-  textconv = wasm-disassemble
+  textconv = wasm-decompile
   binary = true
 [branch]
   autosetuprebase = always

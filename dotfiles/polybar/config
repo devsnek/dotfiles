@@ -47,9 +47,8 @@ padding-right = 2
 module-margin-left = 1
 module-margin-right = 2
 
-font-0 = FiraCode Nerd Font:size=8;1
+font-0 = Siji:size=10;1
 font-1 = FiraCode Nerd Font:size=8;1
-font-2 = Siji:size=10;1
 
 modules-left = i3
 modules-center = date
@@ -109,12 +108,11 @@ label-connected = %local_ip%
 
 format-disconnected =
 
-ramp-signal-0 = 
-ramp-signal-1 = 
-
-ramp-signal-2 = 
-ramp-signal-3 = 
-ramp-signal-4 = 
+ramp-signal-0 = 
+ramp-signal-1 = 
+ramp-signal-2 = 
+ramp-signal-3 = 
+ramp-signal-4 = 
 ramp-signal-foreground = ${colors.foreground-alt}
 
 [module/eth]

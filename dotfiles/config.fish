@@ -3,11 +3,14 @@ set -gx EDITOR vim
 set -gx TIME_STYLE long-iso
 set -gx NPM_CONFIG_PREFIX "$HOME/.npm-global"
 set -gx PYTHONDONTWRITEBYTECODE 1
-set -gx CC_wasm32_unknown_unknown "$HOME/Desktop/tools/wasi-sdk/wasi-sdk/bin/clang"
-set -gx AR_wasm32_unknown_unknown "$HOME/Desktop/tools/wasi-sdi/wasi-sdk/bin/llvm-ar"
 set -gx N_PREFIX "$HOME/n"
 set -gx NODE_REPL_EXTERNAL_MODULE "$NPM_CONFIG_PREFIX/bin/node-prototype-repl"
 set -gx TERMINAL "kitty"
+
+set -gx CC_wasm32_wasi "$HOME/Desktop/tools/wasi-sdk/build/install/opt/wasi-sdk/bin/clang"
+set -gx AR_wasm32_wasi "$HOME/Desktop/tools/wasi-sdk/build/install/opt/wasi-sdk/bin/llvm-ar"
+set -gx CC_wasm32_unknown_unknown $CC_wasm32_wasi
+set -gx AR_wasm32_unknown_unknown $AR_wasm32_wasi
 
 for p in $HOME/bin $HOME/n/bin $HOME/.npm-global/bin $HOME/.esvu/bin $HOME/Desktop/tools/wabt/bin $HOME/.cargo/bin $HOME/.gem/ruby/2.6.0/bin $HOME/Desktop/tools/depot_tools $WASMTIME/bin /usr/lib/ccache/bin
   if test -d $p
@@ -43,7 +46,7 @@ if command --search bat >/dev/null do
 end
 
 function rm
-  /usr/bin/rm -i $argv
+  /bin/rm -i $argv
 end
 
 alias .. "cd .."
@@ -66,3 +69,7 @@ set fish_greeting ""
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/home/snek/google-cloud-sdk/path.fish.inc' ]; . '/home/snek/google-cloud-sdk/path.fish.inc'; end
+
+set -gx WASMTIME_HOME "$HOME/.wasmtime"
+
+string match -r ".wasmtime" "$PATH" > /dev/null; or set -gx PATH "$WASMTIME_HOME/bin" $PATH
