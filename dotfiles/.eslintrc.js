@@ -4,7 +4,7 @@ const Module = require('module');
 
 const hacks = [
   'eslint-config-airbnb-base',
-  'babel-eslint',
+  '@babel/eslint-parser',
 
   'eslint-plugin-import', // dep of airbnb-base
 ];
@@ -22,10 +22,11 @@ Module._findPath = (request, paths, isMain) => {
 
 module.exports = {
   extends: 'airbnb-base',
-  parser: 'babel-eslint',
+  parser: '@babel/eslint-parser',
   parserOptions: {
     ecmaVersion: 2020,
     sourceType: 'script',
+    requireConfigFile: false,
   },
   env: {
     es6: true,
