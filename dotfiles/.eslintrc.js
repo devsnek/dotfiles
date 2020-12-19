@@ -5,6 +5,7 @@ const Module = require('module');
 const hacks = [
   'eslint-config-airbnb-base',
   '@babel/eslint-parser',
+  '@babel/plugin-syntax-top-level-await',
 
   'eslint-plugin-import', // dep of airbnb-base
 ];
@@ -20,6 +21,8 @@ Module._findPath = (request, paths, isMain) => {
   return r;
 };
 
+const babelTLA = require('@babel/plugin-syntax-top-level-await');
+
 module.exports = {
   extends: 'airbnb-base',
   parser: '@babel/eslint-parser',
@@ -27,6 +30,11 @@ module.exports = {
     ecmaVersion: 2020,
     sourceType: 'script',
     requireConfigFile: false,
+    babelOptions: {
+      plugins: [
+        babelTLA.default,
+      ],
+    },
   },
   env: {
     es6: true,
