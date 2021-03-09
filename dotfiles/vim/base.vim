@@ -99,6 +99,8 @@ autocmd BufRead,BufNewFile *.md setlocal spell
 autocmd FileType gitcommit setlocal spell
 nnoremap <silent> <C-l> :nohl<CR><C-l>
 
+let g:polyglot_disabled = ['md', 'markdown', 'jsx']
+
 " settings to be applied after plugins load
 function BaseApplySettings()
   set termguicolors
@@ -111,11 +113,10 @@ function BaseApplySettings()
 
   let g:ale_completion_enabled = 0
   let g:ale_linters = {
-\   'javascript': ['eslint'],
+\   'javascript': ['eslint', 'prettier'],
 \ }
   let g:ale_javascript_eslint_use_global = 1
 
-  let g:polyglot_disabled = ['md', 'markdown', 'jsx']
   let g:vim_markdown_fenced_languages = ['py=python', 'js=javascript']
 
   autocmd BufNewFile,BufRead *.bs   set syntax=html
