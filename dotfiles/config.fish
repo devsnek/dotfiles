@@ -6,13 +6,15 @@ set -gx PYTHONDONTWRITEBYTECODE 1
 set -gx N_PREFIX "$HOME/n"
 set -gx NODE_REPL_EXTERNAL_MODULE "$NPM_CONFIG_PREFIX/bin/node-prototype-repl"
 set -gx TERMINAL "kitty"
+set -gx MODDABLE "$HOME/Desktop/misc/moddable"
+set -gx MSFS_SDK "/run/media/Windows/MSFS SDK/"
 
 # set -gx CC_wasm32_wasi "$HOME/Desktop/tools/wasi-sdk/build/install/opt/wasi-sdk/bin/clang"
 # set -gx AR_wasm32_wasi "$HOME/Desktop/tools/wasi-sdk/build/install/opt/wasi-sdk/bin/llvm-ar"
 # set -gx CC_wasm32_unknown_unknown $CC_wasm32_wasi
 # set -gx AR_wasm32_unknown_unknown $AR_wasm32_wasi
 
-for p in $HOME/bin $HOME/n/bin $HOME/.npm-global/bin $HOME/.esvu/bin $HOME/Desktop/tools/wabt/bin $HOME/.cargo/bin $HOME/.gem/ruby/2.6.0/bin $HOME/Desktop/tools/depot_tools $WASMTIME/bin /usr/lib/ccache/bin
+for p in $HOME/bin $HOME/n/bin $HOME/.npm-global/bin $HOME/.esvu/bin $HOME/Desktop/tools/wabt/bin $HOME/.cargo/bin $HOME/.gem/ruby/2.6.0/bin $HOME/Desktop/tools/depot_tools $WASMTIME/bin /usr/lib/ccache/bin $HOME/.local/bin
   if test -d $p
     set -gx PATH $p $PATH;
   end
