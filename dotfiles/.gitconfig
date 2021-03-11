@@ -1,55 +1,53 @@
 [core]
-  attributesFile = ~/.gitattributes
-  filemode = false
-  autocrlf = false
+	attributesFile = ~/.gitattributes
+	filemode = false
+	autocrlf = false
 [user]
-  email = me@gus.host
-  name = Gus Caplan
-  signingkey = 24E8BBD2DA10B312CF164CA258CCE2A24E2D41DC
+	email = me@gus.host
+	name = Gus Caplan
+	signingkey = 24E8BBD2DA10B312CF164CA258CCE2A24E2D41DC
 [alias]
-  yolo = !git commit -S -m \"$(curl -s whatthecommit.com/index.txt)\"
+	yolo = !git commit -S -m \"$(curl -s whatthecommit.com/index.txt)\"
 	fast = !git add . && git add -A . && git commit -S -m $argv
 [apply]
-  whitespace = fix
+	whitespace = fix
 [http]
 	cookiefile = /home/snek/.gitcookies
 [commit]
-  gpgsign = true
+	gpgsign = true
 [diff "zip"]
-  textconv = unzip -p
-  binary = true
+	textconv = unzip -p
+	binary = true
 [diff "gz"]
-  textconv = gzcat
-  binary = true
+	textconv = gzcat
+	binary = true
 [diff "bz2"]
-  textconv = bzcat
-  binary = true
+	textconv = bzcat
+	binary = true
 [diff "xz"]
-  textconv = xzcat
-  binary = true
+	textconv = xzcat
+	binary = true
 [diff "tar"]
-  textconv = tar -O -xf
-  binary = true
+	textconv = tar -O -xf
+	binary = true
 [diff "tar-bz2"]
-  textconv = tar -O -xjf
-  binary = true
+	textconv = tar -O -xjf
+	binary = true
 [diff "tar-gz"]
-  textconv = tar -O -xzf
-  binary = true
+	textconv = tar -O -xzf
+	binary = true
 [diff "tar-xz"]
-  textconv = tar -O -xJf
-  binary = true
+	textconv = tar -O -xJf
+	binary = true
 [diff "bin"]
-  textconv = hexdump -v -C
+	textconv = hexdump -v -C
 [diff "wasm"]
-  textconv = wasm-decompile
-  binary = true
+	textconv = wasm-decompile
+	binary = true
 [branch]
-  autosetuprebase = always
-[cinnabar]
-  helper = /Users/gus/.mozbuild/git-cinnabar/git-cinnabar-helper
+	autosetuprebase = always
 [credential]
-  helper = store
+	helper = store
 [color]
 	ui = auto
 [init]
@@ -59,3 +57,5 @@
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
+[includeIf "gitdir:~/work/"]
+	path = ~/work/.gitconfig
