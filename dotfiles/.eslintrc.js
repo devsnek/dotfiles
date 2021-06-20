@@ -6,6 +6,9 @@ const hacks = [
   'eslint-config-airbnb-base',
   '@babel/eslint-parser',
   '@babel/plugin-syntax-top-level-await',
+  '@babel/plugin-syntax-class-properties',
+  '@babel/preset-react',
+  '@babel/eslint-plugin',
 
   'eslint-plugin-import', // dep of airbnb-base
 ];
@@ -22,17 +25,24 @@ Module._findPath = (request, paths, isMain) => {
 };
 
 const babelTLA = require('@babel/plugin-syntax-top-level-await');
+const babelPrivate = require('@babel/plugin-syntax-class-properties');
+const presetReact = require('@babel/preset-react');
 
 module.exports = {
   extends: 'airbnb-base',
   parser: '@babel/eslint-parser',
+  plugins: ['@babel'],
   parserOptions: {
-    ecmaVersion: 2020,
+    ecmaVersion: 2021,
     sourceType: 'script',
     requireConfigFile: false,
     babelOptions: {
       plugins: [
         babelTLA.default,
+        babelPrivate.default,
+      ],
+      presets: [
+        presetReact.default,
       ],
     },
   },
@@ -100,6 +110,8 @@ module.exports = {
     'import/extensions': 'off',
     'import/prefer-default-export': 'off',
     'max-classes-per-file': 'off',
+    'no-unused-expressions': 'off',
+    '@babel/no-unused-expressions': 'error',
   },
   globals: {
     WebAssembly: false,
