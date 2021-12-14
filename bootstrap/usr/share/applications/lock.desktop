@@ -1,0 +1,5 @@
+[Desktop Entry]
+Name=Lock Desktop
+Exec=/home/snek/.config/i3/lock.sh
+Type=Application
+Categories=Utility;

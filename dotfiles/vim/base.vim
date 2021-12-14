@@ -8,7 +8,6 @@ function BaseGetPlugins()
 \   'w0rp/ale',
 \   'sheerun/vim-polyglot',
 \   'plasticboy/vim-markdown',
-\   'wakatime/vim-wakatime',
 \   'editorconfig/editorconfig-vim',
 \   '/home/snek/Desktop/projects/vim-wasm',
 \   '/home/snek/Desktop/misc/v8/v8/tools/torque/vim-torque',

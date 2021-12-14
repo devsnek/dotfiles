@@ -1,3 +1,3 @@
 #!/usr/bin/bash
 
-i3lock --nofork -i ~/Pictures/Schlieren2thumb1.png
+i3lock --nofork -i ~/Pictures/wp5569141-raptors-desktop-4k-3840x2180-wallpapers.png
