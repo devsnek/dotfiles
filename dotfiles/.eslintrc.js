@@ -111,6 +111,8 @@ module.exports = {
     'import/prefer-default-export': 'off',
     'max-classes-per-file': 'off',
     'no-unused-expressions': 'off',
+    'no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
+    'no-await-in-loop': 'off',
     '@babel/no-unused-expressions': 'error',
   },
   globals: {
