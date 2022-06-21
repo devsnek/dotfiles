@@ -29,6 +29,7 @@ const babelPrivate = require('@babel/plugin-syntax-class-properties');
 const presetReact = require('@babel/preset-react');
 
 module.exports = {
+  root: true,
   extends: 'airbnb-base',
   parser: '@babel/eslint-parser',
   plugins: ['@babel'],

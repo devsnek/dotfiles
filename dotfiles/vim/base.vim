@@ -11,7 +11,6 @@ function BaseGetPlugins()
 \   'editorconfig/editorconfig-vim',
 \   '/home/snek/Desktop/projects/vim-wasm',
 \   '/home/snek/Desktop/misc/v8/v8/tools/torque/vim-torque',
-\   '/home/snek/Desktop/projects/unnamed_lang/vim'
 \ ]
 endfunction
 
@@ -124,4 +123,6 @@ function BaseApplySettings()
   autocmd BufNewFile,BufRead *.mjs  set filetype=javascript
 
   autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+  au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g'\"" | endif
 endfunction
