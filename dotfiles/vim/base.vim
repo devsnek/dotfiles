@@ -86,6 +86,8 @@ set scrolloff=8         "Start scrolling when we're 8 lines away from margins
 set sidescrolloff=15
 set sidescroll=1
 
+set mouse=
+
 " ================ Search ===========================
 
 set incsearch       " Find the next match as we type the search
@@ -121,6 +123,7 @@ function BaseApplySettings()
   autocmd BufNewFile,BufRead *.sl   set syntax=slither
   autocmd BufNewFile,BufRead *.inc  set syntax=c
   autocmd BufNewFile,BufRead *.mjs  set filetype=javascript
+  autocmd BufNewFile,BufRead *.tab  set filetype=erlang
 
   autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
