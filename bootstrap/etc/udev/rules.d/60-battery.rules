@@ -1,0 +1,3 @@
+SUBSYSTEM=="power_supply", ATTR{online}=="1", RUN+="/usr/bin/powerprofilesctl set performance"
+SUBSYSTEM=="power_supply", ATTR{status}=="Discharging", ATTR{capacity_level}=="Normal", RUN+="/usr/bin/powerprofilesctl set balanced"
+SUBSYSTEM=="power_supply", ATTR{status}=="Discharging", ATTR{capacity_level}=="Low", RUN+="/usr/bin/powerprofilesctl set power-saver"

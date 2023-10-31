@@ -12,7 +12,7 @@
 [apply]
 	whitespace = fix
 [http]
-	cookiefile = ~/.gitcookies
+	cookiefile = /home/snek/.gitcookies
 [commit]
 	gpgsign = true
 [diff "zip"]

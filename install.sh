@@ -22,6 +22,8 @@ install vim/init.vim "$HOME/.config/nvim/init.vim"
 install vim/.vimrc "$HOME/.vimrc"
 install vim/base.vim "$HOME/base.vim"
 
+install picom.conf "$HOME/.config/picom/picom.conf"
+
 install .eslintrc.js
 
 install kitty.conf "$HOME/.config/kitty/kitty.conf"

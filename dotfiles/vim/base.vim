@@ -115,6 +115,9 @@ function BaseApplySettings()
   let g:ale_linters = {
 \   'javascript': ['eslint', 'prettier'],
 \ }
+  if !empty(findfile('deno.json', expand('#1:p').';'))
+    let g:ale_linters['typescript'] = ['deno']
+  endif
   let g:ale_javascript_eslint_use_global = 1
 
   let g:vim_markdown_fenced_languages = ['py=python', 'js=javascript']
