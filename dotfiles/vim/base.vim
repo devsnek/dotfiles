@@ -1,26 +1,32 @@
 set nocompatible
 
-function BaseGetPlugins()
-  return [
-\   'chriskempson/base16-vim',
-\   'vim-airline/vim-airline',
-\   'vim-airline/vim-airline-themes',
-\   'w0rp/ale',
-\   'sheerun/vim-polyglot',
-\   'plasticboy/vim-markdown',
-\   'editorconfig/editorconfig-vim',
-\   '/home/snek/Desktop/projects/vim-wasm',
-\   '/home/snek/Desktop/misc/v8/v8/tools/torque/vim-torque',
-\ ]
-endfunction
+Plug 'chriskempson/base16-vim'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'w0rp/ale'
+Plug 'sheerun/vim-polyglot'
+Plug 'plasticboy/vim-markdown'
+Plug 'tpope/vim-fugitive'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'mattn/vim-lsp-settings'
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
+Plug '/home/snek/Desktop/projects/vim-wasm'
+Plug '/home/snek/code/v8/v8/tools/torque/vim-torque'
 
 set number                       "Line numbers are good
 set history=1000                 "Store lots of :cmdline history
 set showcmd                      "Show incomplete cmds down the bottom
 set visualbell                   "No sounds
 set autoread                     "Reload files changed outside vim
+
 set guicursor=n-v-c:block-Cursor "Use block cursor in normal/visual/selection
 set guicursor+=i:ver100-iCursor  "Use bar cursor in insert
+let &t_SI = "\<Esc>[6 q"
+let &t_SR = "\<Esc>[4 q"
+let &t_EI = "\<Esc>[2 q"
+
 
 " This makes vim act like all other editors, buffers can
 " exist in the background without being in a window.
@@ -31,6 +37,8 @@ set hidden
 if has('clipboard')
   set clipboard=unnamedplus
 end
+
+set completeopt=
 
 "refer to kspell for spelling
 set complete+=kspell
@@ -116,7 +124,11 @@ function BaseApplySettings()
 \   'javascript': ['eslint', 'prettier'],
 \ }
   if !empty(findfile('deno.json', expand('#1:p').';'))
-    let g:ale_linters['typescript'] = ['deno']
+    let g:ale_linters['typescript'] = ['deno', 'eslint', 'prettier']
+    let g:ale_linters['typescriptreact'] = ['deno', 'eslint', 'prettier']
+  else
+    let g:ale_linters['typescript'] = ['tsserver', 'eslint', 'prettier']
+    let g:ale_linters['typescriptreact'] = ['tsserver', 'eslint', 'prettier']
   endif
   let g:ale_javascript_eslint_use_global = 1
 

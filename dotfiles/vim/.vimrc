@@ -3,12 +3,9 @@ set nocompatible
 filetype off
 set directory^=$HOME/.vim/tmp//
 
-source ~/base.vim
 
 call plug#begin('~/.vim/plugged')
-for plugin in BaseGetPlugins()
-  Plug plugin
-endfor
+source ~/base.vim
 call plug#end()
 
 call BaseApplySettings()

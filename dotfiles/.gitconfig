@@ -2,10 +2,12 @@
 	attributesFile = ~/.gitattributes
 	filemode = false
 	autocrlf = false
+	symlinks = true
 [user]
-	email = me@gus.host
-	name = Gus Caplan
-	signingkey = 24E8BBD2DA10B312CF164CA258CCE2A24E2D41DC
+	email = the@snek.dev
+	name = snek
+	# signingkey = 24E8BBD2DA10B312CF164CA258CCE2A24E2D41DC
+	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDeAWgYKQAgzFh4dPZk6bIV3qOS3iHxnKAE0ApCK49lX
 [alias]
 	yolo = !git commit -S -m \"$(curl -s whatthecommit.com/index.txt)\"
 	fast = !git add . && git add -A . && git commit -S -m $argv
@@ -15,6 +17,10 @@
 	cookiefile = /home/snek/.gitcookies
 [commit]
 	gpgsign = true
+[gpg]
+	format = ssh
+[gpg "ssh"]
+	program = "/opt/1Password/op-ssh-sign"
 [diff "zip"]
 	textconv = unzip -p
 	binary = true
@@ -41,9 +47,6 @@
 	binary = true
 [diff "bin"]
 	textconv = hexdump -v -C
-[diff "wasm"]
-	textconv = wasm-decompile
-	binary = true
 [branch]
 	autosetuprebase = always
 [credential]
@@ -57,3 +60,5 @@
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
+[protocol "file"]
+	allow = always

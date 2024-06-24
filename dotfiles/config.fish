@@ -8,6 +8,8 @@ set -gx NODE_REPL_EXTERNAL_MODULE "$NPM_CONFIG_PREFIX/bin/node-prototype-repl"
 set -gx TERMINAL "kitty"
 set -gx MODDABLE "$HOME/Desktop/misc/moddable"
 set -gx MSFS_SDK "/run/media/Windows/MSFS SDK/"
+set -gx CARGO_MOMMYS_MOODS "chill/thirsty"
+set -gx KANIDM_URL "https://idm.snek.dev"
 
 for p in $HOME/bin $HOME/n/bin $HOME/.npm-global/bin $HOME/.esvu/bin $HOME/tools/wabt/bin $HOME/.cargo/bin $HOME/.gem/ruby/2.6.0/bin $HOME/tools/depot_tools $WASMTIME/bin /usr/lib/ccache/bin $HOME/.local/bin
   if test -d $p

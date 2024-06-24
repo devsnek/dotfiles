@@ -7,13 +7,9 @@ let g:python3_host_prog = '/usr/bin/pypy3'
 
 set runtimepath+=~/.config/nvim/rplugin
 
-source ~/base.vim
 
 call plug#begin('~/.local/share/nvim/plugged')
-for plugin in BaseGetPlugins()
-  Plug(plugin)
-endfor
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+source ~/base.vim
 call plug#end()
 
 call BaseApplySettings()
