@@ -18,9 +18,7 @@ install config.fish "$HOME/.config/fish/config.fish"
 install htoprc "$HOME/.config/htop/htoprc"
 install dunstrc "$HOME/.config/dunst/dunstrc"
 
-install vim/init.vim "$HOME/.config/nvim/init.vim"
-install vim/.vimrc "$HOME/.vimrc"
-install vim/base.vim "$HOME/base.vim"
+install .vimrc "$HOME/.vimrc"
 
 install picom.conf "$HOME/.config/picom/picom.conf"
 
