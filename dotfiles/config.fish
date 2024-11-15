@@ -4,12 +4,16 @@ set -gx TIME_STYLE long-iso
 set -gx NPM_CONFIG_PREFIX "$HOME/.npm-global"
 set -gx PYTHONDONTWRITEBYTECODE 1
 set -gx N_PREFIX "$HOME/n"
-set -gx NODE_REPL_EXTERNAL_MODULE "$NPM_CONFIG_PREFIX/bin/node-prototype-repl"
 set -gx TERMINAL "kitty"
 set -gx MODDABLE "$HOME/Desktop/misc/moddable"
 set -gx MSFS_SDK "/run/media/Windows/MSFS SDK/"
 set -gx CARGO_MOMMYS_MOODS "chill/thirsty"
 set -gx KANIDM_URL "https://idm.snek.dev"
+set -gx DEVKITPRO "/opt/devkitpro"
+set -gx DEVKITARM "/opt/devkitpro/devkitARM"
+set -gx DEVKITPPC "/opt/devkitpro/devkitPPC"
+set -gx WASMTIME_HOME "$HOME/.wasmtime"
+set -gx DOTNET_ROOT "$HOME/.dotnet"
 
 for p in $HOME/bin $HOME/n/bin $HOME/.npm-global/bin $HOME/.esvu/bin $HOME/tools/wabt/bin $HOME/.cargo/bin $HOME/.gem/ruby/2.6.0/bin $HOME/tools/depot_tools $WASMTIME/bin /usr/lib/ccache/bin $HOME/.local/bin
   if test -d $p
@@ -69,6 +73,6 @@ set fish_greeting ""
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/home/snek/google-cloud-sdk/path.fish.inc' ]; . '/home/snek/google-cloud-sdk/path.fish.inc'; end
 
-set -gx WASMTIME_HOME "$HOME/.wasmtime"
-
 string match -r ".wasmtime" "$PATH" > /dev/null; or set -gx PATH "$WASMTIME_HOME/bin" $PATH
+
+direnv hook fish | source

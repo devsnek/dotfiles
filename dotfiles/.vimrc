@@ -7,7 +7,8 @@ set directory^=$HOME/.vim/tmp//
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'chriskempson/base16-vim'
+Plug 'rhysd/vim-healthcheck'
+Plug 'devsnek/base16-vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'sheerun/vim-polyglot'
@@ -21,7 +22,6 @@ Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
 Plug 'prabirshrestha/asyncomplete-buffer.vim'
 Plug 'rhysd/vim-lsp-ale'
-Plug '/home/snek/code/v8/v8/tools/torque/vim-torque'
 
 call plug#end()
 
@@ -29,13 +29,23 @@ set number                       # Line numbers are good
 set history=1000                 # Store lots of :cmdline history
 set showcmd                      # Show incomplete cmds down the bottom
 set visualbell                   # No sounds
+set belloff=all
 set autoread                     # Reload files changed outside vim
+set signcolumn=yes               # Prevent jumping when diagnostics load
 
 set guicursor=n-v-c:block-Cursor # Use block cursor in normal/visual/selection
 set guicursor+=i:ver100-iCursor  # Use bar cursor in insert
 &t_SI = "\<Esc>[6 q"
 &t_SR = "\<Esc>[4 q"
 &t_EI = "\<Esc>[2 q"
+
+&t_Ce = "\e[4:0m"  # enable underline reset
+&t_Us = "\e[4:2m"  # enable underdouble
+&t_Cs = "\e[4:3m"  # enable undercurl
+&t_ds = "\e[4:4m"  # enable underdotted
+&t_Ds = "\e[4:5m"  # enable underdashed
+&t_ZH = "\e[3m"
+&t_ZR = "\e[23m"
 
 # This makes vim act like all other editors, buffers can
 # exist in the background without being in a window.
@@ -123,6 +133,7 @@ colors base16-default-dark
 
 g:airline_powerline_fonts = 1
 g:airline_theme = 'term'
+
 g:airline#extensions#ale#enabled = 1
 
 g:ale_javascript_eslint_use_global = 1
@@ -149,6 +160,13 @@ function FixBufferComplete() abort
 endfunction
 autocmd User asyncomplete_setup call s:FixBufferComplete()
 
+set omnifunc=lsp#complete
+if exists('+tagfunc')
+  set tagfunc=lsp#tagfunc
+endif
+
+nmap <buffer> K <plug>(lsp-hover)
+
 autocmd BufNewFile,BufRead *.bs   set syntax=html
 autocmd BufNewFile,BufRead *.sl   set syntax=slither
 autocmd BufNewFile,BufRead *.inc  set syntax=c
@@ -156,6 +174,22 @@ autocmd BufNewFile,BufRead *.mjs  set filetype=javascript
 autocmd BufNewFile,BufRead *.tab  set filetype=erlang
 
 au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g'\"" | endif
+
+highlight link LspErrorVirtualText Comment
+highlight link LspWarningVirtualText Comment
+highlight link LspInformationVirtualText Comment
+highlight link LspHintVirtualText Comment
+
+g:lsp_document_highlight_enabled = false
+g:lsp_diagnostics_virtual_text_align = 'after'
+g:lsp_diagnostics_virtual_text_padding_left = 2
+
+function SetupThing() abort
+  if !empty(&commentstring)
+    let g:lsp_diagnostics_virtual_text_prefix = split(&commentstring, '%s')[0] .. ' '
+  endif
+endfunction
+autocmd BufReadPost * call SetupThing()
 
 if v:version > 703 || v:version == 703 && has('patch541')
   set formatoptions+=j
